@@ -1555,6 +1555,20 @@ wheels = [
 ]
 
 [[package]]
+name = "pyopensim"
+version = "4.5.2.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "numpy" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/00/e0/47a8b07d78a320c149eb25b8b2c81dfe7a4ae603a8678d6711d669bf90d3/pyopensim-4.5.2.0.tar.gz", hash = "sha256:3cbfb9b6a101834d62a7636c9d4883664480577f4c07035c485a3dc0f7d43cd1", size = 54326571, upload-time = "2025-10-23T14:31:34.408Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/d0/cd/ee9500869e2cc285af7096fa6cf2b7d506d9a41e2dad0e0aba81988b61ae/pyopensim-4.5.2.0-cp312-cp312-macosx_11_0_universal2.whl", hash = "sha256:6b92415d4d93a89a76db732798f6e7d960c8ecc6791f37581ad003441252fafe", size = 45902182, upload-time = "2025-10-23T14:31:25.054Z" },
+    { url = "https://files.pythonhosted.org/packages/34/c7/33e78da6f4aa733a236214a58c11ab8ae960debb371acbfb0e864c2fc086/pyopensim-4.5.2.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:7efdce3c1313c0d18392772cedde208fe966df1ff56e932328b7759bd03141d0", size = 29007487, upload-time = "2025-10-23T14:31:28.064Z" },
+    { url = "https://files.pythonhosted.org/packages/d1/a0/b3ce9d425db75cfc0b9ce3879ff7294e7650b4ec710419c54decd1ad842b/pyopensim-4.5.2.0-cp312-cp312-win_amd64.whl", hash = "sha256:5566653672a75214e0973ba367ada5f4200f769c8d60d1aeb3f77cade1cbfb46", size = 28191407, upload-time = "2025-10-23T14:31:31.075Z" },
+]
+
+[[package]]
 name = "pyparsing"
 version = "3.2.5"
 source = { registry = "https://pypi.org/simple" }
@@ -1984,6 +1998,7 @@ dependencies = [
     { name = "pandas" },
     { name = "plotly" },
     { name = "polars" },
+    { name = "pyopensim" },
     { name = "scipy" },
 ]
 
@@ -1996,6 +2011,7 @@ requires-dist = [
     { name = "pandas", specifier = ">=2.3.3" },
     { name = "plotly", specifier = ">=6.3.1" },
     { name = "polars", specifier = ">=1.35.1" },
+    { name = "pyopensim", specifier = ">=4.5.2.0" },
     { name = "scipy", specifier = ">=1.16.3" },
 ]
 
