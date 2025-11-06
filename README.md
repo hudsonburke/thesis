@@ -1,5 +1,6 @@
-## A Quarto Manuscript Template
+To clone this repository and the submodules it depends on, please use
 
-This is a template repo for generating a manuscript from Quarto that accompanies the tutorial at: [Quarto Manuscripts: VS Code](https://quarto.org/docs/manuscripts/authoring/vscode.html)
-
+```shell
+git clone --recurse-submodules https://github.com/hudsonburke/thesis.git
+```
 

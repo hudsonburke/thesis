@@ -2,3 +2,10 @@
 	path = external/RatHindlimb
 	url = https://github.com/UVA-MAMP-Lab/RatHindlimb.git
 	branch = muscles
+[submodule "external/movedb-core"]
+	path = external/movedb-core
+	url = https://github.com/SOMA-Bionics/movedb-core.git
+	branch = dev
+[submodule "external/tsl-optimization"]
+	path = external/tsl-optimization
+	url = https://github.com/hudsonburke/tsl-optimization.git

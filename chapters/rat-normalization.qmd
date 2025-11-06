@@ -1,0 +1,25 @@
+
+```{python}
+import pandas as pd
+import numpy as np
+
+def r2_score(y_true, y_pred):
+    ss_res = np.sum((y_true - y_pred) ** 2)
+    ss_tot = np.sum((y_true - np.mean(y_true)) ** 2)
+    if ss_tot == 0:
+        # Handles horizontal data: perfect fit if ss_res is also 0
+        return 1.0 if ss_res == 0 else 0.0
+    return 1 - (ss_res / ss_tot)
+
+# Model: Exponential+offset  y = a * exp(b*x) + c0
+def exp_off(xx, a, b, c0):
+    # Added a clip to prevent overflow during optimization
+    return a * np.exp(np.clip(b * xx, -100, 100)) + c0
+
+# Model: Power-law + offset  y = a * x^b + c0  (requires x > 0)
+def pow_off(xx, a, b, c0):
+    return a * np.power(xx, b) + c0
+
+def lin_off(xx, a, b):
+    return a * xx + b
+```

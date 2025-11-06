@@ -50,6 +50,7 @@ Stride length, step width, and velocity are normalized by leg length calculated 
 ```{python}
 
 ```
+
 *\^, \^\^, \^\^\^ indicates p < 0.05, 0.01, 0.001 respectively compared to NR*
 *\*, \*\*, \*\*\* indicates p < 0.05, 0.01, 0.001 respectively compared to Control*
 

@@ -15,3 +15,10 @@ dependencies = [
     "pyopensim>=4.5.2.0",
     "scipy>=1.16.3",
 ]
+
+[tool.uv.workspace]
+members = [
+    "external/RatHindlimb",
+    "external/movedb-core",
+    "external/tsl-optimization",
+]
