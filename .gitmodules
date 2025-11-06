@@ -1,0 +1,4 @@
+[submodule "external/RatHindlimb"]
+	path = external/RatHindlimb
+	url = https://github.com/UVA-MAMP-Lab/RatHindlimb.git
+	branch = muscles
