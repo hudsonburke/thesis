@@ -1,0 +1,11 @@
+{
+  "hash": "7764786e34cb57a12cc342ebcae270e4",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: Use of Rodents for Investigating Neuromuscular Injury and Rehabilation\nauthor:\n  - name: Hudson Burke\n    orcid: 0009-0000-2318-9510\n    corresponding: true\n    email: hudsonburke@virginia.edu\n    roles:\n      - Investigation\n      - Software\n      - Visualization\n    affiliations:\n      - University of Virginia\nplain-language-summary: \nkey-points:\n  - \ndate: last-modified\nbibliography: references.bib\nnumber-sections: true\njupyter: python3\n---\n\n## Introduction\n\n## Data & Methods {#sec-data-methods}\n\n## Conclusion\n\n## References {.unnumbered}\n\n::: {#refs}\n:::\n\n",
+    "supporting": [
+      "index_files/figure-pdf"
+    ],
+    "filters": []
+  }
+}

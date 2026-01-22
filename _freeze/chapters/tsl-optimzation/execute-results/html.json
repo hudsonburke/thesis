@@ -1,0 +1,12 @@
+{
+  "hash": "1b2a85ee32f431504a71883d8dd88cda",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: Tendon Slack Length Optimization\nauthor:\n  - name: Hudson Burke\n    orcid: 0009-0000-2318-9510\n    corresponding: true\n    email: hudsonburke@virginia.edu\n    affiliations:\n      - University of Virginia\ndate: last-modified\nbibliography: references.bib\nnumber-sections: true\njupyter: python3\n---\n\n",
+    "supporting": [
+      "tsl-optimzation_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}

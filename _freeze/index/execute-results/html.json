@@ -1,0 +1,12 @@
+{
+  "hash": "61ecc1234e373079690c6017b20bbb7f",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: Use of Rodents for Investigating Neuromuscular Injury and Rehabilation \nauthor:\n  - name: Hudson Burke\n    orcid: 0009-0000-2318-9510\n    corresponding: true\n    email: hudsonburke@virginia.edu\n    affiliations:\n      - University of Virginia\nplain-language-summary: \nkey-points:\n  - \ndate: last-modified\nbibliography: references.bib\nnumber-sections: true\njupyter: python3\n---\n\n## Abstract\n\n## Acknowledgements\n\n## Introduction\n\n## Background & Literature Review\n### Musculoskeletal Modeling\n#### For Gait Analysis\n#### Of Rodents\n### Volumetric Muscle Loss (VML)\n\n## Analysis of Rodent VML Gait\n{{< embed chapters/rat-vml.qmd >}}\n\n## Normalization Strategies\n{{< embed chapters/rat-normalization.qmd >}}\n\n## Model Modification\n{{< embed chapters/rat-model.qmd >}}\n\n## Tendon Slack Length Optimization\n{{< embed chapters/tsl-optimization.qmd >}}\n\n## Muscle Analysis\n{{< embed chapters/rat-muscles.qmd >}}\n\n## Conclusion\n\n## References {.unnumbered}\n\n::: {#refs}\n:::\n\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}

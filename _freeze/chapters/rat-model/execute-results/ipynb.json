@@ -1,0 +1,11 @@
+{
+  "hash": "d5a724acf9179dab7f4f28aeff2d13f4",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: Analysis of Volumetric Muscle Loss Injury and Treatments in the Rodent Lateral Gastrocnemius\nauthor:\n  - name: Hudson Burke\n    orcid: 0009-0000-2318-9510\n    corresponding: true\n    email: hudsonburke@virginia.edu\n    affiliations:\n      - University of Virginia\ndate: last-modified\nbibliography: references.bib\nnumber-sections: true\njupyter: python3\n---\n\n### Introduction\n### Background\n- Use of wrapping surfaces caused discontinuities\n### Muscle Attachment Points\n### Muscle Parameters\n\n---\njupyter:\n  kernelspec:\n    display_name: Python 3 (ipykernel)\n    language: python\n    name: python3\n    path: /home/hudson/Desktop/HudsonVault/Quarto/thesis/.venv/share/jupyter/kernels/python3\n  language_info:\n    codemirror_mode:\n      name: ipython\n      version: 3\n    file_extension: .py\n    mimetype: text/x-python\n    name: python\n    nbconvert_exporter: python\n    pygments_lexer: ipython3\n    version: 3.12.3\n---\n",
+    "supporting": [
+      "rat-model_files"
+    ],
+    "filters": []
+  }
+}
