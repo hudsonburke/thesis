@@ -1,0 +1,53 @@
+# Bilateral Rat Model Refinement
+
+## Introduction
+
+The methodology is described in brief here. The up to date model and processing code can be found at the [RatHindlimb repository](https://github.com/UVA-MAMP-Lab/RatHindlimb).
+
+## Prior Work
+
+- [@johnsonMusculoskeletalModelRat]
+- [@johnsonApplicationRatHindlimb2011a]
+- [@engScalingMuscleArchitecture2008]
+- [@charlesMusculoskeletalGeometryMuscle2016]
+- [@ramalingasettyWholeBodyMusculoskeletalModel2021]
+- [@dienesAnalysisModelingRat2019]
+- [@hicksKinematicKineticGait2023]
+- [@alexanderhuntUsingAnimalData2015]
+- [@youngNeuromechanicalRatModel2018]
+- [@youngAnalyzingMomentArm2019]
+
+## Methods
+
+### Inertial Parameters
+
+- See methodology from Hicks dissertation
+
+### Muscle Attachment Points
+
+
+### Knee Edit
+
+
+### Muscle Parameters {.sec-musc-params}
+
+
+{{< embed ../src/RatHindlimb/index.qmd#tbl-johnson-params >}}
+{{< embed ../src/RatHindlimb/index.qmd#tbl-eng-params >}}
+
+TODO: Also do the box and whisker plots for these parameters to show distributions
+
+
+### Bilateral Mirroring
+
+- Mirrored right side to left side
+- 
+
+## Results
+
+
+## Discussion
+
+- Still needs tendon slack length optimization
+- Not only a new bilateral model but a reproducible workflow for future rat model development
+

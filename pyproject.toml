@@ -1,0 +1,26 @@
+[project]
+name = "thesis"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "jupyter>=1.1.1",
+    "jupyter-cache>=1.0.1",
+    "matplotlib>=3.10.8",
+    "numpy>=2.4.1",
+    "osimpy",
+    "pandas>=2.3.3",
+    "plotly>=6.5.1",
+    "polars>=1.37.0",
+    "quarto>=0.1.0",
+    "scipy>=1.17.0",
+]
+
+[tool.uv.workspace]
+members = [
+    "src/osimpy",
+]
+
+[tool.uv.sources]
+osimpy = { workspace = true }

@@ -1,0 +1,13 @@
+# Rat VML Analysis {.sec-rat-vml}
+
+## Introduction
+
+{{< external ../src/rat-vml/index.qmd#methods >}}
+
+{{< external ../src/rat-vml/index.qmd#results >}}
+TODO: Split up sections and move figures 
+
+{{< external ../src/rat-vml/index.qmd#discussion >}}
+
+
+{{< external ../src/rat-vml/index.qmd#conclusion >}}

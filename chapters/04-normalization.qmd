@@ -1,0 +1,125 @@
+# Normalization of Rodent Inverse Dynamics Data
+
+## Introduction
+
+- VML data 
+- [@wannopNormalizationGroundReaction2012]
+
+## Methods
+
+<!-- ```{python} -->
+<!-- import pandas as pd -->
+<!-- import numpy as np -->
+<!-- from scipy.optimize import curve_fit -->
+<!-- import plotly.express as px -->
+<!---->
+<!-- raw_measurements = ["Mass", "TotalLength", "RightTibiaLength", "RightFemurLength", "RightFootLength", "RightWalkingSpeed"] -->
+<!-- computed_measurements = { -->
+<!--   "RightLegLength": lambda df: df["RightTibiaLength"] + df["RightFemurLength"], -->
+<!--   "Mass*TotalLength": lambda df: df["Mass"] * df["TotalLength"], -->
+<!--   "Mass*RightTibiaLength": lambda df: df["Mass"] * df["RightTibiaLength"], -->
+<!--   "Mass*Speed": lambda df: df["Mass"] * df["RightWalkingSpeed"], -->
+<!-- } -->
+<!---->
+<!-- def r2_score(y_true, y_pred): -->
+<!--     ss_res = np.sum((y_true - y_pred) ** 2) -->
+<!--     ss_tot = np.sum((y_true - np.mean(y_true)) ** 2) -->
+<!--     if ss_tot == 0: -->
+<!--         # Handles horizontal data: perfect fit if ss_res is also 0 -->
+<!--         return 1.0 if ss_res == 0 else 0.0 -->
+<!--     return 1 - (ss_res / ss_tot) -->
+<!---->
+<!-- def lin_off(xx, a, b): -->
+<!--     return a * xx + b -->
+<!---->
+<!-- def pow_off(xx, a, b, c): -->
+<!--     return a * (xx ** b) + c -->
+<!---->
+<!-- def exp_off(xx, a, b, c): -->
+<!--     return a * np.exp(b * xx) + c -->
+<!---->
+<!-- fit_funcs = [lin_off, pow_off, exp_off] -->
+<!---->
+<!-- # This list will store a dictionary for each row in the final DataFrame -->
+<!-- all_fits = [] -->
+<!---->
+<!-- # Loop through each "Measurement" column (e.g., 'Mass', 'Mass*RSpeed') -->
+<!-- for m_col_name in measurements.columns: -->
+<!--     x_all = pd.to_numeric(measurements[m_col_name], errors='coerce') -->
+<!--     BAA_x_all = pd.to_numeric(BAA_measurements[m_col_name], errors='coerce') -->
+<!---->
+<!--     # Loop through each "Joint" column (e.g., 'sacrum_pitch_moment') -->
+<!--     for j_col_name in joints.columns: -->
+<!--         # Prepare data for this specific Measurement-Joint pair -->
+<!--         y_abs = pd.to_numeric(joints[j_col_name], errors='coerce').abs() -->
+<!--         BAA_y_abs = pd.to_numeric(BAA_joints[j_col_name], errors='coerce').abs() -->
+<!---->
+<!--         mask = x_all.notna() & y_abs.notna() & (x_all != 0) -->
+<!--         xx = x_all[mask].values -->
+<!--         yy = y_abs[mask].values -->
+<!---->
+<!--         BAA_mask = BAA_x_all.notna() & BAA_y_abs.notna() & (BAA_x_all != 0) -->
+<!--         BAA_xx = BAA_x_all[BAA_mask].values -->
+<!--         BAA_yy = BAA_y_abs[BAA_mask].values -->
+<!---->
+<!---->
+<!--         # If not enough data points, record failure and skip -->
+<!--         if len(xx) < 2 or len(np.unique(xx)) < 2: # Recommended to have at least 3 points for 3 parameters -->
+<!--             print(f"Not enough points for {m_col_name} and {j_col_name}") -->
+<!--             all_fits.append({ -->
+<!--                 'Measurement': m_col_name, 'Joint': j_col_name,  -->
+<!--                 'R^2': np.nan, 'a': np.nan, 'b': np.nan -->
+<!--             }) -->
+<!--             continue -->
+<!---->
+<!--         try: -->
+<!--             # Perform the curve fit -->
+<!--             a0 = float(np.sign(np.mean(yy)) * max(1e-8, np.mean(np.abs(yy)))) -->
+<!--             b0 = 1.0 -->
+<!--             (a, b), _ = curve_fit(lin_off, xx, yy, p0=[a0, b0], maxfev=50000) -->
+<!---->
+<!--             # Calculate R^2 score -->
+<!--             y_pred = lin_off(xx, a, b) -->
+<!--             r2 = r2_score(yy, y_pred) -->
+<!---->
+<!--             BAA_y_pred = lin_off(BAA_xx, a, b) -->
+<!--             BAA_r2 = r2_score(BAA_yy, BAA_y_pred) -->
+<!---->
+<!---->
+<!--             # Append the successful result as a new row -->
+<!--             all_fits.append({ -->
+<!--                 'Measurement': m_col_name, 'Joint_Moment': j_col_name,  -->
+<!--                 'R^2': r2, 'a': a, 'b': b, 'BAA_R^2': BAA_r2 -->
+<!--             }) -->
+<!---->
+<!--         except Exception: -->
+<!--             print(f"Curve fit failed for {m_col_name} and {j_col_name}") -->
+<!--             # If curve_fit fails, record the failure -->
+<!--             all_fits.append({ -->
+<!--                 'Measurement': m_col_name, 'Joint_Moment': j_col_name,  -->
+<!--                 'R^2': np.nan, 'a': np.nan, 'b': np.nan -->
+<!--             }) -->
+<!---->
+<!-- # Create the final DataFrame from the list of results -->
+<!-- # Explicitly set column order to match your request -->
+<!-- column_order = ['Measurement', 'Joint_Moment', 'R^2', 'a', 'b', 'BAA_R^2'] -->
+<!-- results_df = pd.DataFrame(all_fits, columns=column_order) -->
+<!---->
+<!-- # This is the DataFrame you want to output -->
+<!-- results_df -->
+<!-- ``` -->
+
+- 3 old rats vs Control dataset
+- Curve fits
+  - Linear fit $y =ax +b$
+  - Exponential fit $y = a{e}^{bx} + c$
+  - Power fit $y = ax^b + c$
+- 
+
+## Results
+
+- 
+
+## Discussion
+
+- There 

@@ -1,0 +1,6 @@
+/.quarto/
+**/*.quarto_ipynb
+/.venv/
+/.vscode/
+/_book/
+/_freeze/

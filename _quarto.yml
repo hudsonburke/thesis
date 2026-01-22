@@ -1,0 +1,40 @@
+project:
+  type: book
+
+execute:
+  freeze: auto
+
+book:
+  title: "Use of Rodents for Investigating Neuromuscular Injury and Rehabilation"
+  author: "Hudson Burke"
+  search: true
+  repo-url: https://github.com/hudsonburke/thesis/
+  downloads: [pdf, docx, epub]
+  chapters:
+    - index.qmd
+    - acknowledgements.qmd
+    - chapters/01-introduction.qmd
+    - chapters/02-background.qmd
+    - chapters/03-rat-vml.qmd
+    - chapters/04-normalization.qmd
+    - chapters/05-rat-model.qmd
+    - chapters/06-tsl-optimization.qmd
+    - chapters/07-muscle-analysis.qmd
+    - chapters/08-conclusions.qmd
+    - references.qmd
+comments:
+  hypothesis: true
+
+bibliography: references.bib
+
+format:
+  html:
+    respect-user-color-scheme: true
+    theme:
+      dark: darkly
+      light: flatly
+      # - cosmo
+      # - brand
+    code-fold: true
+  pdf:
+    documentclass: scrreprt
