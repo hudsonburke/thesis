@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The methodology is described in brief here. The up to date model and processing code can be found at the [RatHindlimb repository](https://github.com/UVA-MAMP-Lab/RatHindlimb).
+The methodology is described in brief here. The up-to-date model and processing code can be found at the [RatHindlimb repository](https://github.com/UVA-MAMP-Lab/RatHindlimb).
 
 ## Prior Work
 
