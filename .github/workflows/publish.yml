@@ -13,6 +13,8 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+        with:
+          submodules: recursive
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
@@ -28,7 +30,7 @@ jobs:
           auto-activate: true
 
       - name: Install local dependencies
-        run: pip install -e src/osimpy/
+        run: pip install -e ./src/osimpy
 
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
