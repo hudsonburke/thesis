@@ -27,14 +27,13 @@ jobs:
         with:
           python-version: 3.12
           environment-file: environment.yaml
-          auto-activate: true
+          activate-environment: quarto-env
+          auto-activate-base: false
 
       - name: Install local dependencies
-        run: pip install -e ./src/osimpy
+        run: conda run -n quarto-env python -m pip install -e ./src/osimpy
 
       - name: Render and Publish
-        uses: quarto-dev/quarto-actions/publish@v2
-        with:
-          target: gh-pages
+        run: conda run -n quarto-env quarto publish gh-pages --no-prompt
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
