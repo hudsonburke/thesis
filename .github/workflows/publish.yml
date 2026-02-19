@@ -25,15 +25,15 @@ jobs:
       - name: Create conda environment
         uses: conda-incubator/setup-miniconda@v3
         with:
-          python-version: 3.12
           environment-file: environment.yaml
-          activate-environment: quarto-env
-          auto-activate-base: false
+          auto-activate: true
 
       - name: Install local dependencies
-        run: conda run -n quarto-env python -m pip install -e ./src/osimpy
+        run: pip install -e ./src/osimpy
 
       - name: Render and Publish
-        run: conda run -n quarto-env quarto publish gh-pages --no-prompt
+        uses: quarto-dev/quarto-actions/publish@v2
+        with:
+          target: gh-pages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
