@@ -28,7 +28,31 @@ $\frac{\sum\left(l^{t}_{s,(i)}-\bar{l}^{t}_{s}\right)^{2}}{n}$
 
 ## Results
 
-{{< embed ../src/ASB2025-TSL-Optimization/analysis.ipynb# >}}
+Using the model's full range of motion, we generated 125 musculotendon length samples for gaslat, 256 for bflh, and 100 for soleus. Across all muscles, SSDP optimization produced relatively stable tendon slack length estimates over broad musculotendon length ranges, with 481 total TSL--MT datapoints.
+
+The estimated tendon slack lengths were:
+
+| Muscle | MT length range (m) | SSDP TSL range (m) | SSDP TSL mean $\pm$ SD (m) | CV (%) | Corr. $r$(MT, TSL) |
+|---|---:|---:|---:|---:|---:|
+| gaslat | 0.3561--0.4815 | 0.3326--0.3790 | 0.3571 $\pm$ 0.0068 | 1.89 | 0.7613 |
+| bflh | 0.3307--0.5238 | 0.2956--0.3784 | 0.3414 $\pm$ 0.0125 | 3.66 | 0.7670 |
+| soleus | 0.2857--0.3521 | 0.2792--0.2881 | 0.2836 $\pm$ 0.0013 | 0.47 | 0.6232 |
+
+Compared with Rajagopal's reported values (gaslat: 0.3740 m, bflh: 0.3325 m, soleus: 0.2813 m), the SSDP means were lower for gaslat and slightly higher for bflh and soleus, while remaining within each muscle's estimated TSL range.
+
+Coordinate dependence of musculotendon length was muscle-specific. For gaslat, the strongest relationships were with ankle angle ($r=0.7562$) and knee angle ($r=-0.6442$). For bflh, hip flexion ($r=0.8102$) and knee angle ($r=-0.5237$) were dominant. For soleus, ankle angle showed a near-monotonic relationship with musculotendon length ($r=0.9919$), while subtalar angle had minimal influence ($r=-0.0546$).
+
+![Musculotendon length dependence on joint coordinates for gaslat, bflh, and soleus. Color indicates musculotendon length, with stronger coordinate coupling visible for ankle angle in soleus and hip flexion in bflh.](../src/ASB2025-TSL-Optimization/figures/mt_length_coordinate_relationships.png){#fig-tsl-coord-dependence}
+
+When overlaid with motion-specific musculotendon length ranges (walking, squatting, and cutting), most functional ranges fell in regions where TSL estimates were comparatively flat, but some motions approached edge regions where tendon force rose rapidly, especially for soleus and the long-length end of bflh.
+
+::: {layout-ncol=3}
+![Gaslat SSDP tendon slack length estimates and tendon force envelope across musculotendon lengths, with activity-specific length ranges overlaid.](../src/ASB2025-TSL-Optimization/figures/tsl_force_gaslat.png){#fig-tsl-gaslat}
+
+![Bflh SSDP tendon slack length estimates and tendon force envelope across musculotendon lengths, with activity-specific length ranges overlaid.](../src/ASB2025-TSL-Optimization/figures/tsl_force_bflh.png){#fig-tsl-bflh}
+
+![Soleus SSDP tendon slack length estimates and tendon force envelope across musculotendon lengths, with activity-specific length ranges overlaid.](../src/ASB2025-TSL-Optimization/figures/tsl_force_soleus.png){#fig-tsl-soleus}
+:::
 
 
 ## Discussion
