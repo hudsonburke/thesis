@@ -31,6 +31,7 @@ jobs:
           conda info
           conda env list
           python --version
+          python -c "import nbformat, notebook; print('Jupyter deps OK')"
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
@@ -39,11 +40,17 @@ jobs:
           tinytex: true
 
       - name: Install local dependencies
-        run: pip install -e ./src/osimpy
+        run: python -m pip install -e ./src/osimpy
+
+      - name: Render project
+        run: |
+          export QUARTO_PYTHON="$(which python)"
+          quarto render
 
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
         with:
           target: gh-pages
+          render: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
