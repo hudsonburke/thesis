@@ -7,20 +7,25 @@
 
 ## Methods
 
-- 3 old rats and 32 baseline 
-- Curve fits
-  - Linear fit $y = ax +b$
-  - Exponential fit $y = ae^{bx} + c$
-  - Power fit $y = ax^b + c$
-- R^2 score
+We analyzed inverse-dynamics data from 35 rats (32 baseline animals: BAA01-BAA32; 3 older animals: Old01-Old03). Candidate normalization measurements included body mass, body and segment lengths, and walking speed, as well as simple composite terms motivated by dynamic similarity. Specifically, we evaluated the following predictors: `Mass`, `TotalLength`, `RightTibiaLength`, `RightFemurLength`, `RightFootLength`, `RightWalkingSpeed`, `RightLegLength` (`RightTibiaLength + RightFemurLength`), `Mass*TotalLength`, `Mass*RightTibiaLength`, and `Mass*Speed` (`Mass * RightWalkingSpeed`).
+
+For each predictor, we modeled the magnitude of each right-limb joint moment (`hip_r_flx_moment`, `hip_r_add_moment`, `hip_r_int_moment`, `knee_r_flx_moment`, `ankle_r_flx_moment`) using three candidate functional forms:
+
+- Linear: $y = ax + b$
+- Power: $y = ax^b + c$
+- Exponential: $y = ae^{bx} + c$
+
+Prior to fitting, rows with zero values in the current predictor were excluded (e.g., missing `TotalLength` entries) so that each measurement-moment model used only valid observations for that predictor. Joint moments were evaluated as absolute values to compare scaling relationships in magnitude rather than direction.
+
+All models were fit with nonlinear least squares (`scipy.optimize.curve_fit`, max function evaluations = 50,000). Goodness of fit was quantified using the coefficient of determination, $R^2 = 1 - \frac{SS_{res}}{SS_{tot}}$, computed for each measurement-moment-model combination. We summarized the resulting $R^2$ values in heatmaps (measurement × joint moment) separately for linear, power, and exponential fits to identify the most consistent normalization candidates across joints.
 
 ## Results
 
-- Knee flexion/extension showed strong correlations with mass * tibia length
+Knee flexion/extension showed the strongest scaling relationships across all joints, with the best-performing predictor given by `Mass*RightTibiaLength` under a power fit ($R^2 = 0.932$). The next-best knee predictors were `Mass*TotalLength` (power fit, $R^2 = 0.922$) and `Mass` (exponential fit, $R^2 = 0.907$). Across joint moments overall (mean of best-per-moment fits), `Mass*TotalLength` ranked highest, followed by `Mass` and `Mass*RightTibiaLength`, indicating that mass-length composite terms provided the most consistent normalization performance.
 
-{{embed "../notebooks/normalization.ipynb#fig-lin-heatmap" >}}
-{{embed "../notebooks/normalization.ipynb#fig-pow-heatmap" >}}
-{{embed "../notebooks/normalization.ipynb#fig-exp-heatmap" >}}
+{{< embed "../notebooks/normalization.ipynb#fig-lin-heatmap" >}}
+{{< embed "../notebooks/normalization.ipynb#fig-pow-heatmap" >}}
+{{< embed "../notebooks/normalization.ipynb#fig-exp-heatmap" >}}
 
 ## Discussion
 
