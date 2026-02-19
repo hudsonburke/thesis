@@ -10,6 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    defaults:
+      run:
+        shell: bash -el {0}
     steps:
       - name: Check out repository
         uses: actions/checkout@v6
@@ -23,12 +26,11 @@ jobs:
           environment-file: environment.yaml
           auto-activate-base: false
 
-      - name: Initialize conda
+      - name: Verify conda environment
         run: |
-          conda init
-      - name: Activate conda environment
-        run: |
-          conda activate thesis
+          conda info
+          conda env list
+          python --version
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
