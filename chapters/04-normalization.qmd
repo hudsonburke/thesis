@@ -7,20 +7,21 @@
 
 ## Methods
 
-- 3 old rats vs Control dataset
+- 3 old rats and 32 baseline 
 - Curve fits
-  - Linear fit $y =ax +b$
-  - Exponential fit $y = a{e}^{bx} + c$
+  - Linear fit $y = ax +b$
+  - Exponential fit $y = ae^{bx} + c$
   - Power fit $y = ax^b + c$
-- 
+- R^2 score
 
 ## Results
+
+- Knee flexion/extension showed strong correlations with mass * tibia length
 
 {{embed "../notebooks/normalization.ipynb#fig-lin-heatmap" >}}
 {{embed "../notebooks/normalization.ipynb#fig-pow-heatmap" >}}
 {{embed "../notebooks/normalization.ipynb#fig-exp-heatmap" >}}
 
-
 ## Discussion
 
-- There 
+While this methodology shows promise in normalizing rodent inverse dynamics data, there are several limitations to consider. The small sample size limits the generalizability of the findings. Additionally, the lack of an age-matched control dataset makes it difficult to fully validate the normalization methods proposed. Ideally, there would be an age-matched control dataset to compare against, but this was not available. Future work should consider collecting such data to validate the normalization methods proposed here. 

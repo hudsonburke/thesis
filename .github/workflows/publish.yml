@@ -20,6 +20,15 @@ jobs:
           version: pre-release
           tinytex: true
 
+      - name: Create conda environment
+        uses: conda-incubator/setup-miniconda@v3
+        with:
+          python-version: 3.12
+          environment-file: environment.yaml
+          auto-activate: true
+
+      - name: Install local dependencies
+        run: pip install -e src/osimpy/
 
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2

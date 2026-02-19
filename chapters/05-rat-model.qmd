@@ -2,10 +2,11 @@
 
 ## Introduction
 
-The methodology is described in brief here. The up-to-date model and processing code can be found at the [RatHindlimb repository](https://github.com/UVA-MAMP-Lab/RatHindlimb).
+The methodology is described in brief here. The up-to-date model, version history, and processing code can be found at the [RatHindlimb repository](https://github.com/UVA-MAMP-Lab/RatHindlimb). Some of the documenation is copied here.
 
 ## Prior Work
 
+Original model drawn from a [SimTK project](https://simtk.org/projects/rat_hlimb_model) which is based on Johnson et al. 2008 [@johnsonMusculoskeletalModelRat].
 - [@johnsonMusculoskeletalModelRat]
 - [@johnsonApplicationRatHindlimb2011a]
 - [@engScalingMuscleArchitecture2008]
@@ -19,35 +20,84 @@ The methodology is described in brief here. The up-to-date model and processing 
 
 ## Methods
 
+### General Modernization
+
+- Lock unused degrees of freedom
+- Naming conventions
+- Update to latest OpenSim version
+- Marker set
+
 ### Inertial Parameters
 
 - See methodology from Hicks dissertation
 
 ### Muscle Attachment Points
 
+In analyizing the original Johnson rat model, we observed that several muscles exhibited discontinuous changes in length during joint rotations. This behavior is non-physiological and can lead to inaccuracies in simulations of muscle function.
+The following muscles were identified as having discontinuous length changes as demonstated by the parallel coordinate plots showing the muscle lengths over a range of joint angles:
+
+TODO 
+
+- BFa 
+- CF
+- STp
+- TA
+- VL
+
+Investigating the root cause of this, we found that the likely culprit is a hard-coded value in [OpenSim's WrapCylinder.cpp code](https://github.com/opensim-org/opensim-core/blob/f9cd558ec3ea99dda206e5e412e62e23cf19bd7e/OpenSim/Simulation/Wrap/WrapCylinder.cpp#L668) that determines the number of segments used to approximate the muscle path over a wrapping cylinder:
+
+```c
+// Each muscle segment on the surface of the cylinder should be
+// 0.002 meters long. This assumes the model is in meters, of course.
+int numWrapSegments = (int)(aWrapResult.wrap_path_length / 0.002);
+if (numWrapSegments < 1) numWrapSegments = 1;
+```
+
+This means that for cylinders with small circumferences, the muscle path may be approximated with very few segments, leading to abrupt changes in path length as the muscle wraps around the cylinder. To address this issue, we either need to modify the OpenSim source code to increase the number of segments used for wrapping or modify the wrapping paths in the model. 
+
+### Muscle path redefinition
+Johnson's original model relied heavily on wrapping surfaces, but a more recent work that built upon that original model and drew from Greene's [@greeneAnatomyRat] original anatomical text defined a large set of attachment points for muscles instead of relying on wrapping surfaces [@youngNeuromechanicalRatModel2018]. This newer model may avoid some of the issues with discontinuous muscle lengths. Unfortunately, that model was created for a software called [Animatlab](https://www.animatlab.com/), and there was no existing OpenSim version of it. 
+
+We were able to get in touch with the author of the Animatlab model, Dr. Young, who provided the original files and assisted in understanding the model structure. From there, we manually recorded the muscle attachment points seen in the model as seen in @tbl-young-attachments.
+
+```{python}
+#| label: tbl-young-attachments
+
+```
+
+The coordinate systems used in Animatlab differ from those in OpenSim, so a direct conversion is non-trivial. To be able to transfer the attachment points into our OpenSim model we needed to determine the necessary transformations between the coordinate systems. 
+The method we chose to do this was using mesh registration to align the bone geometries from the Animatlab model to those in our OpenSim model. Once aligned, we could apply the same transformations to the muscle attachment points to bring them into the OpenSim coordinate system. 
+
+We utilize the [`open3d`](http://www.open3d.org/) [@zhouOpen3DModernLibrary2018] library to perform the mesh registration based on feature computation and the iterative closest point (ICP) algorithm. Additionally, we implement a function to compute the transformation matrices that will be used to transform the attachment points between models. 
 
 ### Knee Edit
+
+In Johnson's orginal model, the tibia offset frame used as the parent frame for the knee joint is defined at the distal end of the tibia, and the spatial transform is handled by a `SimmSpline` component. When the model is scaled to subject-specific parameters, the knee motion is incorrect because the `SimmSpline` trajectory does not change, and the tibia offset frame does not move, so there is nothing to account for the new tibia length. To correct this, we adjust the tibia offset frame to be at the approximate joint center of the knee as determined by the instantaneous center of rotation (ICR) of the knee calculated by moving the knee through its full range of motion, sampling points and projecting them, **TODO** using @eg-icr. The location change can be seen in @fig-knee.
+
+$$
+P_x
+$$ {#eq-icr}
+
 
 
 ### Muscle Parameters {.sec-musc-params}
 
-
-{{< embed ../src/RatHindlimb/index.qmd#tbl-johnson-params >}}
-{{< embed ../src/RatHindlimb/index.qmd#tbl-eng-params >}}
+The original model uses the Thelen [@thelenAdjustmentMuscleMechanics2003] muscle model, which has been largely superseded by the Millard [@millarmillardFlexingComputationalMuscle2013] muscle model in OpenSim especially for muscle-level analysis.
 
 TODO: Also do the box and whisker plots for these parameters to show distributions
+
+Tendon slack length estimation will be detailed in @sec-tsl-optimization.
 
 
 ### Bilateral Mirroring
 
-- Mirrored right side to left side
-- 
+Finally, to create a bilateral model, the bodies, joints, and muscles from the right leg were mirrored to the left side. Care was taken to ensure that all coordinate systems and muscle paths were correctly oriented for the left side of the body.
 
 ## Results
 
+Boom, rat model
 
 ## Discussion
 
-- Still needs tendon slack length optimization
 - Not only a new bilateral model but a reproducible workflow for future rat model development
 
