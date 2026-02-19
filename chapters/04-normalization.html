@@ -459,23 +459,61 @@ window.Quarto = {
 </section>
 <section id="methods" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="methods"><span class="header-section-number">4.2</span> Methods</h2>
+<p>We analyzed inverse-dynamics data from 35 rats (32 baseline animals: BAA01-BAA32; 3 older animals: Old01-Old03). Candidate normalization measurements included body mass, body and segment lengths, and walking speed, as well as simple composite terms motivated by dynamic similarity. Specifically, we evaluated the following predictors: <code>Mass</code>, <code>TotalLength</code>, <code>RightTibiaLength</code>, <code>RightFemurLength</code>, <code>RightFootLength</code>, <code>RightWalkingSpeed</code>, <code>RightLegLength</code> (<code>RightTibiaLength + RightFemurLength</code>), <code>Mass*TotalLength</code>, <code>Mass*RightTibiaLength</code>, and <code>Mass*Speed</code> (<code>Mass * RightWalkingSpeed</code>).</p>
+<p>For each predictor, we modeled the magnitude of each right-limb joint moment (<code>hip_r_flx_moment</code>, <code>hip_r_add_moment</code>, <code>hip_r_int_moment</code>, <code>knee_r_flx_moment</code>, <code>ankle_r_flx_moment</code>) using three candidate functional forms:</p>
 <ul>
-<li>3 old rats and 32 baseline</li>
-<li>Curve fits
-<ul>
-<li>Linear fit <span class="math inline">\(y = ax +b\)</span></li>
-<li>Exponential fit <span class="math inline">\(y = ae^{bx} + c\)</span></li>
-<li>Power fit <span class="math inline">\(y = ax^b + c\)</span></li>
-</ul></li>
-<li>R^2 score</li>
+<li>Linear: <span class="math inline">\(y = ax + b\)</span></li>
+<li>Power: <span class="math inline">\(y = ax^b + c\)</span></li>
+<li>Exponential: <span class="math inline">\(y = ae^{bx} + c\)</span></li>
 </ul>
+<p>Prior to fitting, rows with zero values in the current predictor were excluded (e.g., missing <code>TotalLength</code> entries) so that each measurement-moment model used only valid observations for that predictor. Joint moments were evaluated as absolute values to compare scaling relationships in magnitude rather than direction.</p>
+<p>All models were fit with nonlinear least squares (<code>scipy.optimize.curve_fit</code>, max function evaluations = 50,000). Goodness of fit was quantified using the coefficient of determination, <span class="math inline">\(R^2 = 1 - \frac{SS_{res}}{SS_{tot}}\)</span>, computed for each measurement-moment-model combination. We summarized the resulting <span class="math inline">\(R^2\)</span> values in heatmaps (measurement × joint moment) separately for linear, power, and exponential fits to identify the most consistent normalization candidates across joints.</p>
 </section>
 <section id="results" class="level2" data-number="4.3">
 <h2 data-number="4.3" class="anchored" data-anchor-id="results"><span class="header-section-number">4.3</span> Results</h2>
-<ul>
-<li>Knee flexion/extension showed strong correlations with mass * tibia length</li>
-</ul>
-<p>{{embed “../notebooks/normalization.ipynb#fig-lin-heatmap” &gt;}} {{embed “../notebooks/normalization.ipynb#fig-pow-heatmap” &gt;}} {{embed “../notebooks/normalization.ipynb#fig-exp-heatmap” &gt;}}</p>
+<p>Knee flexion/extension showed the strongest scaling relationships across all joints, with the best-performing predictor given by <code>Mass*RightTibiaLength</code> under a power fit (<span class="math inline">\(R^2 = 0.932\)</span>). The next-best knee predictors were <code>Mass*TotalLength</code> (power fit, <span class="math inline">\(R^2 = 0.922\)</span>) and <code>Mass</code> (exponential fit, <span class="math inline">\(R^2 = 0.907\)</span>). Across joint moments overall (mean of best-per-moment fits), <code>Mass*TotalLength</code> ranked highest, followed by <code>Mass</code> and <code>Mass*RightTibiaLength</code>, indicating that mass-length composite terms provided the most consistent normalization performance.</p>
+<div class="quarto-embed-nb-cell" data-notebook="/home/runner/work/thesis/thesis/notebooks/normalization.ipynb" data-notebook-title="Normalization Analysis" data-notebook-cellid="cell-fig-lin-heatmap">
+<div id="cell-fig-lin-heatmap" class="cell">
+<div id="fig-lin-heatmap" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-lin-heatmap-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<pre><code>Unable to display output for mime type(s): application/vnd.plotly.v1+json</code></pre>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-lin-heatmap-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.1
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-embed-nb-cell" data-notebook="/home/runner/work/thesis/thesis/notebooks/normalization.ipynb" data-notebook-title="Normalization Analysis" data-notebook-cellid="cell-fig-pow-heatmap">
+<div id="cell-fig-pow-heatmap" class="cell" data-execution_count="11">
+<div id="fig-pow-heatmap" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-pow-heatmap-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<pre><code>Unable to display output for mime type(s): application/vnd.plotly.v1+json</code></pre>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-pow-heatmap-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.2
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-embed-nb-cell" data-notebook="/home/runner/work/thesis/thesis/notebooks/normalization.ipynb" data-notebook-title="Normalization Analysis" data-notebook-cellid="cell-fig-exp-heatmap">
+<div id="cell-fig-exp-heatmap" class="cell">
+<div id="fig-exp-heatmap" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-exp-heatmap-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<pre><code>Unable to display output for mime type(s): application/vnd.plotly.v1+json</code></pre>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-exp-heatmap-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.3
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="discussion" class="level2" data-number="4.4">
 <h2 data-number="4.4" class="anchored" data-anchor-id="discussion"><span class="header-section-number">4.4</span> Discussion</h2>
