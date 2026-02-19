@@ -27,6 +27,14 @@ Original model drawn from a [SimTK project](https://simtk.org/projects/rat_hlimb
 - Update to latest OpenSim version
 - Marker set
 
+### Knee Edit
+
+In Johnson's orginal model, the tibia offset frame used as the parent frame for the knee joint is defined at the distal end of the tibia, and the spatial transform is handled by a `SimmSpline` component. When the model is scaled to subject-specific parameters, the knee motion is incorrect because the `SimmSpline` trajectory does not change, and the tibia offset frame does not move, so there is nothing to account for the new tibia length. To correct this, we adjust the tibia offset frame to be at the approximate joint center of the knee as determined by the instantaneous center of rotation (ICR) of the knee calculated by moving the knee through its full range of motion, sampling points and projecting them, **TODO** using @eg-icr. The location change can be seen in @fig-knee.
+
+$$
+P_x
+$$ {#eq-icr}
+
 ### Inertial Parameters
 
 - See methodology from Hicks dissertation
@@ -69,15 +77,6 @@ The coordinate systems used in Animatlab differ from those in OpenSim, so a dire
 The method we chose to do this was using mesh registration to align the bone geometries from the Animatlab model to those in our OpenSim model. Once aligned, we could apply the same transformations to the muscle attachment points to bring them into the OpenSim coordinate system. 
 
 We utilize the [`open3d`](http://www.open3d.org/) [@zhouOpen3DModernLibrary2018] library to perform the mesh registration based on feature computation and the iterative closest point (ICP) algorithm. Additionally, we implement a function to compute the transformation matrices that will be used to transform the attachment points between models. 
-
-### Knee Edit
-
-In Johnson's orginal model, the tibia offset frame used as the parent frame for the knee joint is defined at the distal end of the tibia, and the spatial transform is handled by a `SimmSpline` component. When the model is scaled to subject-specific parameters, the knee motion is incorrect because the `SimmSpline` trajectory does not change, and the tibia offset frame does not move, so there is nothing to account for the new tibia length. To correct this, we adjust the tibia offset frame to be at the approximate joint center of the knee as determined by the instantaneous center of rotation (ICR) of the knee calculated by moving the knee through its full range of motion, sampling points and projecting them, **TODO** using @eg-icr. The location change can be seen in @fig-knee.
-
-$$
-P_x
-$$ {#eq-icr}
-
 
 
 ### Muscle Parameters {.sec-musc-params}

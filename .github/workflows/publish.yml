@@ -16,17 +16,21 @@ jobs:
         with:
           submodules: recursive
 
+      - name: Create conda environment
+        uses: conda-incubator/setup-miniconda@v3
+        with:
+          activate-environment: thesis
+          environment-file: environment.yaml
+          auto-activate-base: false
+
+      - name: Make sure conda environment is activated
+        run: conda activate thesis
+
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
         with:
           version: pre-release
           tinytex: true
-
-      - name: Create conda environment
-        uses: conda-incubator/setup-miniconda@v3
-        with:
-          environment-file: environment.yaml
-          auto-activate: true
 
       - name: Install local dependencies
         run: pip install -e ./src/osimpy
