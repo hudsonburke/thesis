@@ -1,0 +1,292 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Use of Rodents for Investigating Neuromuscular Injury and Rehabilation",
+    "section": "",
+    "text": "Abstract",
+    "crumbs": [
+      "Abstract"
+    ]
+  },
+  {
+    "objectID": "chapters/02-background.html",
+    "href": "chapters/02-background.html",
+    "title": "2  Background & Literature Review",
+    "section": "",
+    "text": "2.1 Musculoskelatal Modeling",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Background & Literature Review</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/02-background.html#musculoskelatal-modeling",
+    "href": "chapters/02-background.html#musculoskelatal-modeling",
+    "title": "2  Background & Literature Review",
+    "section": "",
+    "text": "2.1.1 For Gait Analysis\n\n\n2.1.2 Of Rodents",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Background & Literature Review</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/02-background.html#volumetric-muscle-loss-vml",
+    "href": "chapters/02-background.html#volumetric-muscle-loss-vml",
+    "title": "2  Background & Literature Review",
+    "section": "2.2 Volumetric Muscle Loss (VML)",
+    "text": "2.2 Volumetric Muscle Loss (VML)",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Background & Literature Review</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-rat-vml.html",
+    "href": "chapters/03-rat-vml.html",
+    "title": "3  Rat VML Analysis",
+    "section": "",
+    "text": "3.1 Introduction",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Rat VML Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-rat-vml.html#methods",
+    "href": "chapters/03-rat-vml.html#methods",
+    "title": "3  Rat VML Analysis",
+    "section": "3.2 Methods",
+    "text": "3.2 Methods\n\n3.2.1 Experimental Design\nForty-eight 12-week-old female Lewis rats were divided into six treatment groups, with eight rats per group. A 20% by-mass volumetric muscle loss (VML) injury was created in the left lateral gastrocnemius (LG) muscle of each animal. The first group was a No Repair (NR) control, where the injury site was left empty. The second group received a Tissue-Engineered Muscle Repair (TEMR), which involved filling the site with a cell-seeded bioscaffold. The third and fourth groups received acellular treatments, consisting of either a pro-regenerative Healy Hydrogel (HH) or a porous collagen Healy Sponge (HS). The final two groups received combination treatments: one group was given the TEMR construct with the Healy Hydrogel (TEMR+HH), and the other received the TEMR construct with an acellular keratin gel (TEMR+KG). Functional assessment was performed 24 weeks post-surgery and each group was compared to the group that received no repair to clarify trends in recovery or decline. A previously collected dataset of 32 animals was used as the Control group.\n\n\n3.2.2 Animal Care and Surgical Procedures\nAll animal procedures were approved by the University of Virginia Animal Care and Use Committee, conducted in compliance with the Guide for the Care and Use of Laboratory Animals , the Animal Welfare Act, and the Implementing Animal Welfare Regulations. Lewis Rats (Charles River Laboratories) were pair-housed in a vivarium accredited by the American Association for the Accreditation of Laboratory Animal Care with ad libitum access to food and water.\nThe VML injury surgery was performed in accordance with the procedure outlined in Merritt et al. (2010). The LG was exposed and a 20% distal portion was excised by mass. The assigned repair material was then implanted into the defect following methodologies in the respective literature @. No repair material was implanted in the no repair (NR) group. The overlying fascia was closed with 6-0 vicryl sutures, and the skin was closed with 5-0 prolene using interrupted sutures with skin glue over top to reduce the risk of reopening the incision.\nPrior to surgery, slow-release buprenorphine was administered (0.1 mg/kg, subcutaneously). All surgical procedures along with shaving and motion capture marker placement were performed under continuous isoflurane anesthesia inhalation (1.5–2.5%). The depth of anesthesia was monitored by the response of the animal to a slight toe pinch, where the lack of response was considered the surgical plane of anesthesia. A heated water perfusion system was utilized for core temperature maintenance. Post-operative analgesia was provided with quick-release buprenorphine (0.1 mg/kg, subcutaneously) at 36 and 48 hours. No animal required additional analgesia after 48 hours post-surgery as determined by veterinary staff that monitored for pain and distress.\n\n\n3.2.3 Motion Capture and Gait Analysis\nAfter 24 weeks to allow for injury progression or healing, gait data was collected for each rat in the treatment groups. Reflective markers were adhered to bony landmarks on the pelvis and joint locations on the hindlimb based on the set described by Johnson et al. (2008) and utilized in previous studies by this group (Dienes 2019, 2022). Marker locations were: (1) L6 vertebra, (2) 5th caudal vertebra, (3-4) left and right anterior iliac crests, (5-6) left and right greater trochanter of the femur, (7-8) left and right lateral femoral epicondyle, (9-10) left and right lateral malleolus, and (11-12) left and right lateral aspect of the distal end of the 5th metatarsal. After an acclimation period, rats walked along an instrumented walkway while motion was captured with a seven-camera Vicon system recording marker data at 200Hz and synchronized with four in-ground ATI six-axis force transducers recording ground reaction forces at 1000 Hz. A minimum of three successful trials wherein one complete steady-state gait cycle, defined from foot strike to foot strike, per hindlimb without overlap on a force plate during stance phase were collected for each rat at each time point.\n\n\n3.2.4 Gait Modeling and Statistical Analysis\nMarker trajectories and ground reaction force data were filtered using a 4th order, low-pass, Butterworth filter (cutoff frequencies of 15 Hz and 100 Hz, respectively). For each rat, a subject specific OpenSim model of the hindlimbs was generated from limb measurements and previously acquired limb anthropometrics (Hicks and Dienes et al., 2022). OpenSim’s inverse kinematic and inverse dynamic tools were used to compute hindlimb joint angles and joint moments. Reported data corresponds to one gait cycle, with the stance and swing phase of the right stride reported independently to minimize the effects of phasing caused by velocity differences. Moments were normalized to total body mass multiplied by the total length as is common practice for kinetic analysis in biomechanics (Winters 2009). Limitations to this normalization strategy will be covered in the Discussion section. Spatiotemporal parameters (STPs) were calculated in Vicon Nexus using standard definitions as presented in Huxley et al(). At the 24-week endpoint, STPs were compared to No Repair dataset using unpaired t-tests. For time-series kinematic and kinetic data, Statistical Parametric Mapping (SPM) with unpaired t-tests was used to identify regional significant differences across the gait cycle between groups indicated by highlighted vertical rectangles (Pataky et al. 2016). A red highlighted region indicates significant difference compared to No Repair, and a black highlighted region indicates significant difference compared to Control. Statistical significance was set at α=0.05.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Rat VML Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-rat-vml.html#results",
+    "href": "chapters/03-rat-vml.html#results",
+    "title": "3  Rat VML Analysis",
+    "section": "3.3 Results",
+    "text": "3.3 Results\n\n3.3.1 Spatiotemporal Parameters\nStride length, step width, and velocity are normalized by leg length calculated by summing the femur and tibia lengths.\n\n\n^, , ^ indicates p &lt; 0.05, 0.01, 0.001 respectively compared to NR\n*, **, *** indicates p &lt; 0.05, 0.01, 0.001 respectively compared to Control\nThe No Repair group had a significantly narrower step width and decreased stance percentage compared to the control group. This narrower step width was reflected in nearly every other treatment except the TEMR+HH group. All groups that received some form of TEMR treatment moved significantly slower compared to both the Control and No Repair groups. This was coupled with significant increases in stance percentages and decreases in stride lengths compared to the Control group.\n\n\n3.3.2 Kinematics and Kinetics\n\n3.3.2.1 No Repair (NR)\n \nThe primary differences seen in the injured subjects compared to the control dataset were an increased ankle dorsiflexion angle during mid-stance coupled with increases in the knee extension and hip internal rotation moments. These changes suggest that to compensate for the loss of plantarflexor function, the animals are adopting a gait strategy that reduces the demand on the ankle joint by increasing dorsiflexion and utilizing more proximal musculature to generate the necessary extension moments at the knee and hip. Effective therapies would be expected to mitigate these compensations and restore more normal kinematic and kinetic patterns.\n\n\n3.3.2.2 Healy Hydrogel (HH)\n \nThe Healy Hydrogel group demonstrated very similar kinematic and kinetic patterns to the No Repair group, with increased ankle dorsiflexion during mid-stance and elevated knee extension and hip internal rotation moments. Significance was also seen in some other kinematic measures, but this is likely a result of variability in marker placement. This suggests that the hydrogel alone did not provide sufficient functional recovery to alter the compensatory gait strategies observed in the No Repair group.\n\n\n3.3.2.3 Healy Sponge (HS)\n \nThe Healy Sponge group exhibited kinematic and kinetic patterns more similar to the Control group compared to the No Repair and Healy Hydrogel groups. While some significant difference remained in the knee extension moment, the curve shifted away from the trajectory seen in the No Repair group and towards the Control group, and the overall patterns suggested a trend toward normalization of gait mechanics. The difference in ankle dorsiflexion angle did not reach the level of significance compared to either the Control or No Repair groups, but visual inspection of the curves suggests it is still closer to the No Repair values, and the lack of significance is more likely a result of a higher variance. This indicates that the sponge may have provided a more conducive environment for muscle regeneration or functional compensation compared to the hydrogel.\n\n\n3.3.2.4 Tissue-Engineered Muscle Repair Combination Therapies\nMany of the TEMR groups exhibited similar patterns and will be analyzed together.\n\n\n3.3.2.5 Tissue-Engineered Muscle Repair (TEMR)\n \n\n\n3.3.2.6 TEMR and Hydrogel (TEMR+HH)\n \n\n\n3.3.2.7 TEMR and Keratin Gel (TEMR+KG)\n \nKinematically, the ankle dorsiflexion angle is still significantly elevated in mid-stance compared to Control. The kinetic profile across all three TEMR groups is similar, with decreased knee extension moment during stance compared to the No Repair group but still significantly greater than the Control group. Similarly, the hip internal rotation moments are significantly greater than Control in mid-stance, akin to the No Repair group. A unique adaptation that surfaces in the TEMR groups is a decrease in ankle plantarflexion moment compared to both the Control and No Repair groups during mid-stance. These findings suggest that while the TEMR treatments may not fully restore normal gait mechanics, they do introduce unique compensatory strategies, particularly at the ankle joint.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Rat VML Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-rat-vml.html#discussion",
+    "href": "chapters/03-rat-vml.html#discussion",
+    "title": "3  Rat VML Analysis",
+    "section": "3.4 Discussion",
+    "text": "3.4 Discussion\n\n3.4.1 Summary of Findings\nThis study provides a comprehensive biomechanical analysis of various treatment strategies for volumetric muscle loss (VML) in a rat model. The No Repair group exhibited significant compensatory gait adaptations, including increased ankle dorsiflexion and elevated knee and hip moments, indicative of the functional deficits caused by VML. This pattern continued in treatment groups, though to lesser extent, and likely represents a more flat-footed posture during stance to be able to transfer more powere to the ground with the knee. The Healy Hydrogel treatment did not significantly alter these compensatory patterns, suggesting limited functional recovery. In contrast, the Healy Sponge treatment showed trends toward normalization of gait mechanics, indicating a more favorable environment for muscle regeneration or compensation. The TEMR-based treatments, while not fully restoring normal gait mechanics, introduced unique compensatory strategies, particularly at the ankle joint, highlighting their potential to mitigate some functional deficits associated with VML.\n\n\n3.4.2 Limitations and Future Directions\nIn this study, joint moments were normalized to body mass multiplied by total length, a common approach to account for size differences among subjects and facilitate comparison across groups. However, this normalization method has limitations as it is based on geometric scaling assumptions that may not adequately reflect rodent limb growth over time. This analysis is limited by the lack of age-matched controls that would provide a more direct comparison between pathological gait adaptation and normative gait patterns. Examining uninjured rodent gait patterns over time would also provide an insight into potential normalization strategies. From a small subset of uninjured rats, we noticed that there may be a disproportionate growth in the tibia length compared to the femur which could impact the moment arms seen at different joints. This study provides a valuable biomechanical analysis of several different VML repairs at a single time point. A key future direction is a longitudinal analysis to track the evolution of these gait adaptations over the entire 24-week period, which would reveal the time-dependent aspects of recovery and delineate the progression of pathological compensation strategies. Additionally, while the inverse dynamics analysis reveals net joint moments, it falls short of partitioning these into individual muscle force contributions. Future work using advanced musculoskeletal modeling techniques, such as computed muscle control, could estimate these forces and provide deeper insight into neuromuscular compensation patterns. Furthermore, expansion of the model to include the front limbs could uncover further ways that the rats compensate for musculoskeletal deficiencies. Finally, correlating these functional outcomes with histological and molecular analyses of the repair tissue would delineate the biological mechanisms that contribute to the distinction between successful and unsuccessful treatments.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Rat VML Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-rat-vml.html#conclusion",
+    "href": "chapters/03-rat-vml.html#conclusion",
+    "title": "3  Rat VML Analysis",
+    "section": "3.5 Conclusion",
+    "text": "3.5 Conclusion\nVolumetric muscle loss causes functional impairments that are not adequately addressed by current clinical practice. This study provides a broad comparison of the long-term functional efficacy of several preclinical regenerative strategies. We found that while no treatment achieved a full return to uninjured function, therapies incorporating a specific sponge material produced modest but significant trends toward functional healing, demonstrating mitigated pathological gait compensations. This work emphasizes the utility and importance of detailed biomechanical assessment in evaluating VML treatments and highlights the potential of biomaterials to enhance regenerative outcomes.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Rat VML Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/04-normalization.html",
+    "href": "chapters/04-normalization.html",
+    "title": "4  Normalization of Rodent Inverse Dynamics Data",
+    "section": "",
+    "text": "4.1 Introduction",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Normalization of Rodent Inverse Dynamics Data</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/04-normalization.html#introduction",
+    "href": "chapters/04-normalization.html#introduction",
+    "title": "4  Normalization of Rodent Inverse Dynamics Data",
+    "section": "",
+    "text": "VML data\n(wannopNormalizationGroundReaction2012?)",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Normalization of Rodent Inverse Dynamics Data</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/04-normalization.html#methods",
+    "href": "chapters/04-normalization.html#methods",
+    "title": "4  Normalization of Rodent Inverse Dynamics Data",
+    "section": "4.2 Methods",
+    "text": "4.2 Methods\n\n3 old rats and 32 baseline\nCurve fits\n\nLinear fit \\(y = ax +b\\)\nExponential fit \\(y = ae^{bx} + c\\)\nPower fit \\(y = ax^b + c\\)\n\nR^2 score",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Normalization of Rodent Inverse Dynamics Data</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/04-normalization.html#results",
+    "href": "chapters/04-normalization.html#results",
+    "title": "4  Normalization of Rodent Inverse Dynamics Data",
+    "section": "4.3 Results",
+    "text": "4.3 Results\n\nKnee flexion/extension showed strong correlations with mass * tibia length\n\n{{embed “../notebooks/normalization.ipynb#fig-lin-heatmap” &gt;}} {{embed “../notebooks/normalization.ipynb#fig-pow-heatmap” &gt;}} {{embed “../notebooks/normalization.ipynb#fig-exp-heatmap” &gt;}}",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Normalization of Rodent Inverse Dynamics Data</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/04-normalization.html#discussion",
+    "href": "chapters/04-normalization.html#discussion",
+    "title": "4  Normalization of Rodent Inverse Dynamics Data",
+    "section": "4.4 Discussion",
+    "text": "4.4 Discussion\nWhile this methodology shows promise in normalizing rodent inverse dynamics data, there are several limitations to consider. The small sample size limits the generalizability of the findings. Additionally, the lack of an age-matched control dataset makes it difficult to fully validate the normalization methods proposed. Ideally, there would be an age-matched control dataset to compare against, but this was not available. Future work should consider collecting such data to validate the normalization methods proposed here.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Normalization of Rodent Inverse Dynamics Data</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/05-rat-model.html",
+    "href": "chapters/05-rat-model.html",
+    "title": "5  Bilateral Rat Model Refinement",
+    "section": "",
+    "text": "5.1 Introduction\nThe methodology is described in brief here. The up-to-date model, version history, and processing code can be found at the RatHindlimb repository. Some of the documenation is copied here.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Bilateral Rat Model Refinement</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/05-rat-model.html#prior-work",
+    "href": "chapters/05-rat-model.html#prior-work",
+    "title": "5  Bilateral Rat Model Refinement",
+    "section": "5.2 Prior Work",
+    "text": "5.2 Prior Work\nOriginal model drawn from a SimTK project which is based on Johnson et al. 2008 (johnsonMusculoskeletalModelRat?). - (johnsonMusculoskeletalModelRat?) - (johnsonApplicationRatHindlimb2011a?) - (Eng et al. 2008) - (charlesMusculoskeletalGeometryMuscle2016?) - (ramalingasettyWholeBodyMusculoskeletalModel2021?) - (dienesAnalysisModelingRat2019?) - (hicksKinematicKineticGait2023?) - (alexanderhuntUsingAnimalData2015?) - (youngNeuromechanicalRatModel2018?) - (youngAnalyzingMomentArm2019?)",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Bilateral Rat Model Refinement</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/05-rat-model.html#methods",
+    "href": "chapters/05-rat-model.html#methods",
+    "title": "5  Bilateral Rat Model Refinement",
+    "section": "5.3 Methods",
+    "text": "5.3 Methods\n\n5.3.1 General Modernization\n\nLock unused degrees of freedom\nNaming conventions\nUpdate to latest OpenSim version\nMarker set\n\n\n\n5.3.2 Knee Edit\nIn Johnson’s orginal model, the tibia offset frame used as the parent frame for the knee joint is defined at the distal end of the tibia, and the spatial transform is handled by a SimmSpline component. When the model is scaled to subject-specific parameters, the knee motion is incorrect because the SimmSpline trajectory does not change, and the tibia offset frame does not move, so there is nothing to account for the new tibia length. To correct this, we adjust the tibia offset frame to be at the approximate joint center of the knee as determined by the instantaneous center of rotation (ICR) of the knee calculated by moving the knee through its full range of motion, sampling points and projecting them, TODO using (eg-icr?). The location change can be seen in ?fig-knee.\n\\[\nP_x\n\\tag{5.1}\\]\n\n\n5.3.3 Inertial Parameters\n\nSee methodology from Hicks dissertation\n\n\n\n5.3.4 Muscle Attachment Points\nIn analyizing the original Johnson rat model, we observed that several muscles exhibited discontinuous changes in length during joint rotations. This behavior is non-physiological and can lead to inaccuracies in simulations of muscle function. The following muscles were identified as having discontinuous length changes as demonstated by the parallel coordinate plots showing the muscle lengths over a range of joint angles:\nTODO\n\nBFa\nCF\nSTp\nTA\nVL\n\nInvestigating the root cause of this, we found that the likely culprit is a hard-coded value in OpenSim’s WrapCylinder.cpp code that determines the number of segments used to approximate the muscle path over a wrapping cylinder:\n// Each muscle segment on the surface of the cylinder should be\n// 0.002 meters long. This assumes the model is in meters, of course.\nint numWrapSegments = (int)(aWrapResult.wrap_path_length / 0.002);\nif (numWrapSegments &lt; 1) numWrapSegments = 1;\nThis means that for cylinders with small circumferences, the muscle path may be approximated with very few segments, leading to abrupt changes in path length as the muscle wraps around the cylinder. To address this issue, we either need to modify the OpenSim source code to increase the number of segments used for wrapping or modify the wrapping paths in the model.\n\n\n5.3.5 Muscle path redefinition\nJohnson’s original model relied heavily on wrapping surfaces, but a more recent work that built upon that original model and drew from Greene’s (greeneAnatomyRat?) original anatomical text defined a large set of attachment points for muscles instead of relying on wrapping surfaces (youngNeuromechanicalRatModel2018?). This newer model may avoid some of the issues with discontinuous muscle lengths. Unfortunately, that model was created for a software called Animatlab, and there was no existing OpenSim version of it.\nWe were able to get in touch with the author of the Animatlab model, Dr. Young, who provided the original files and assisted in understanding the model structure. From there, we manually recorded the muscle attachment points seen in the model as seen in ?tbl-young-attachments.\nThe coordinate systems used in Animatlab differ from those in OpenSim, so a direct conversion is non-trivial. To be able to transfer the attachment points into our OpenSim model we needed to determine the necessary transformations between the coordinate systems. The method we chose to do this was using mesh registration to align the bone geometries from the Animatlab model to those in our OpenSim model. Once aligned, we could apply the same transformations to the muscle attachment points to bring them into the OpenSim coordinate system.\nWe utilize the open3d (zhouOpen3DModernLibrary2018?) library to perform the mesh registration based on feature computation and the iterative closest point (ICP) algorithm. Additionally, we implement a function to compute the transformation matrices that will be used to transform the attachment points between models.\n\n\n5.3.6 Muscle Parameters\nThe original model uses the Thelen (thelenAdjustmentMuscleMechanics2003?) muscle model, which has been largely superseded by the Millard (millarmillardFlexingComputationalMuscle2013?) muscle model in OpenSim especially for muscle-level analysis.\nTODO: Also do the box and whisker plots for these parameters to show distributions\nTendon slack length estimation will be detailed in ?sec-tsl-optimization.\n\n\n5.3.7 Bilateral Mirroring\nFinally, to create a bilateral model, the bodies, joints, and muscles from the right leg were mirrored to the left side. Care was taken to ensure that all coordinate systems and muscle paths were correctly oriented for the left side of the body.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Bilateral Rat Model Refinement</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/05-rat-model.html#results",
+    "href": "chapters/05-rat-model.html#results",
+    "title": "5  Bilateral Rat Model Refinement",
+    "section": "5.4 Results",
+    "text": "5.4 Results\nBoom, rat model",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Bilateral Rat Model Refinement</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/05-rat-model.html#discussion",
+    "href": "chapters/05-rat-model.html#discussion",
+    "title": "5  Bilateral Rat Model Refinement",
+    "section": "5.5 Discussion",
+    "text": "5.5 Discussion\n\nNot only a new bilateral model but a reproducible workflow for future rat model development\n\n\n\n\n\nEng, Carolyn M., Laura H. Smallwood, Maria Pia Rainiero, Michele Lahey, Samuel R. Ward, and Richard L. Lieber. 2008. “Scaling of Muscle Architecture and Fiber Types in the Rat Hindlimb.” Journal of Experimental Biology 211 (14): 2336–45. https://doi.org/10.1242/jeb.017640.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Bilateral Rat Model Refinement</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/06-tsl-optimization.html",
+    "href": "chapters/06-tsl-optimization.html",
+    "title": "6  Tendon Slack Length Optimization",
+    "section": "",
+    "text": "6.1 Introduction\nThis chapter draws heavily from the abstract and poster presented at American Society of Biomechanics (ASB) 2025: “Effects of error function selection and normalized fiber length range in numerical estimation of tendon slack length” Those materials can be found at the ASB2025-TSL-Optimization repository.\nIn musculoskeletal models incorporating Hill-type muscles, parameters must be specified to determine the forces generated by the musculotendon unit. One of the most influential parameters is tendon slack length. Tendon slack length is originally posited as a representation of the length at which the tendon begins to produce a restorative force and has been estimated in various ways throughout literature. This value cannot simply be measured directly as tendons often run parallel to the fibers of the muscle. One of the most popular human models used especially for lower limb gait modeling from Rajagopal (rajagopalFullBodyMusculoskeletalModel2016?) estimates tendon slack length based on the fiber length at a specific joint configuration. Manal (manalSubjectSpecificEstimatesTendon2004?) proposed an optimization technique to minimize the error between tendon slack lengths estimated at a range of muscle lengths using the active and passive force-length curves for the muscle along with the tendon force-length curve. We extend this technique to analyze the effect that normalized fiber length range and different error functions have on the estimated tendon slack lengths in an effort to inform a robust methodology for numerically tuning tendon slack length in new musculoskeletal models. We also analyze the predicted force profiles produced by the musculotendon units during several different kinematic motions after optimization to assess the physiological plausibility of the results.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Tendon Slack Length Optimization</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/06-tsl-optimization.html#methods",
+    "href": "chapters/06-tsl-optimization.html#methods",
+    "title": "6  Tendon Slack Length Optimization",
+    "section": "6.2 Methods",
+    "text": "6.2 Methods\nThis methodology follows the same concept proposed in Manal (manalSubjectSpecificEstimatesTendon2004?) in that it utilizes equations derived from Zajac (zajacMuscleTendonProperties1989?) to calculate tendon slack length from measured muscle parameters and interpolated force values. The optimization differs by using Sequential Least SQuares Programming (SLSQP) instead of Generalized Reduced Gradient (GRG) as an algorithm for optimization because of its availability and popularity in Python. Furthermore, the active and passive fiber and tendon force length curves were taken from the Millard (millardFlexingComputationalMuscle2013?) muscle as seen in ?fig-millard-fl-curves instead of Zajac’s curves, and lengths were chosen from the whole range of motion of the muscles instead of a short and long length within ten percent of the minimum and maximum flexion angles and averaging the two for a third middle length. The tendon slack lengths were estimated for the lateral gastrocnemius (gaslat), long head of the biceps femoris (bflh), and the soleus to demonstrate application across muscles of differing architectures in terms of tendon to fiber ratio. In addition to the sum of squared differences between each element originally used by Manal, three additional error functions were utilized: the standard deviation, the variance, and the sum of squared differences between each element and the mean. The model’s position was iterated through all of the degrees of freedom to get a minimum of 100 musculotendon lengths for each muscle. Then, SLSQP minimization from the scipy [@] optimization library in Python is utilized to minimize the error function of the calculated tendon slack lengths at each musculotendon length. This was performed using a full range of normalized fiber lengths to capture the main force-producing part of the fiber force-length curve, using estimates of the operating range of each muscle during gait as reported by Arnold [@], and using only the ascending portion of the curve as done in Manal [@].\n\\(l^{t}_{s} = \\frac{l^{mt}-l^{m}_{o} \\cdot \\tilde{l}^{m}\\cos(\\alpha)}{\\left[ 1+\\frac{\\text{eval}\\left[\\tilde{F}^{m}(\\tilde{l}^{m})\\right]\\cos(\\alpha)+0.2375}{37.5} \\right]}\\)\nSum of Squared Difference of Pairs (ssdp): \\(\\sum_{i}\\sum_{j}\\left(l^{t}_{s,(i)}-l^{t}_{s,(j)}\\right)^{2}\\)\nSum of Squared Difference from Mean (ssdm): \\(\\sum\\left(l^{t}_{s,(i)}-\\bar{l}^{t}_{s}\\right)^{2}\\)\nStandard Deviation (std): \\(\\sqrt{ \\frac{\\sum\\left(l^{t}_{s,(i)}-\\bar{l}^{t}_{s}\\right)^{2}}{n} }\\)\nVariance (var): \\(\\frac{\\sum\\left(l^{t}_{s,(i)}-\\bar{l}^{t}_{s}\\right)^{2}}{n}\\)",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Tendon Slack Length Optimization</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/06-tsl-optimization.html#results",
+    "href": "chapters/06-tsl-optimization.html#results",
+    "title": "6  Tendon Slack Length Optimization",
+    "section": "6.3 Results",
+    "text": "6.3 Results\n\nLoad the model into a more intuitive graph structure using OsimGraph:\n\n\n[info] Updating Model file from 40000 to latest format...\n[info] Loaded model RajagopalLaiUhlrich2023 from file models/RajagopalLaiUhlrich2023.osim\n\n\nGet the musculotendon lengths for the desired range of motion for each muscle\nPlot the musculotendon lengths with respect to the coordinates\n\n\nCreating coordinate-based visualizations:\n==================================================\ngaslat_r: 3 coordinates - ['ankle_angle_r', 'knee_angle_r', 'subtalar_angle_r']\nbflh_r: 4 coordinates - ['hip_rotation_r', 'hip_adduction_r', 'hip_flexion_r', 'knee_angle_r']\nsoleus_r: 2 coordinates - ['ankle_angle_r', 'subtalar_angle_r']\n\nAll unique coordinates: ['ankle_angle_r', 'hip_adduction_r', 'hip_flexion_r', 'hip_rotation_r', 'knee_angle_r', 'subtalar_angle_r']\nTotal number of unique coordinates: 6\n\ngaslat_r - Top varying coordinates:\n  knee_angle_r: range = 2.4435 rad\n  ankle_angle_r: range = 1.7453 rad\n  subtalar_angle_r: range = 1.2217 rad\n\nbflh_r - Top varying coordinates:\n  hip_flexion_r: range = 2.6180 rad\n  knee_angle_r: range = 2.4435 rad\n  hip_adduction_r: range = 1.3963 rad\n  hip_rotation_r: range = 1.3963 rad\n\nsoleus_r - Top varying coordinates:\n  ankle_angle_r: range = 1.7453 rad\n  subtalar_angle_r: range = 1.2217 rad\n\n\n\n\n\n\n\n\n\n\n============================================================\nCOORDINATE-MT LENGTH CORRELATION ANALYSIS\n============================================================\n\ngaslat_r:\n----------------------------------------\nTop correlations (coordinate vs MT length):\n  ankle_angle_r       : r =  0.7562\n  knee_angle_r        : r = -0.6442\n  subtalar_angle_r    : r = -0.0459\n\nbflh_r:\n----------------------------------------\nTop correlations (coordinate vs MT length):\n  hip_flexion_r       : r =  0.8102\n  knee_angle_r        : r = -0.5237\n  hip_adduction_r     : r = -0.1829\n  hip_rotation_r      : r =  0.0447\n\nsoleus_r:\n----------------------------------------\nTop correlations (coordinate vs MT length):\n  ankle_angle_r       : r =  0.9919\n  subtalar_angle_r    : r = -0.0546\n\n\nOptimize for tendon slack length\nCalculate the force that would be produced with each tendon slack length at the respective musculotendon lengths\nGet the musculotendon lengths for walking, squatting, and cutting motions.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n================================================================================\nDETAILED TSL ESTIMATES ANALYSIS\n================================================================================\n\nGASLAT_R:\n--------------------------------------------------\nMT Length Range: 0.3561 - 0.4815 m\nNumber of MT Length Points: 125\n\nSSDP:\n  Number of TSL estimates: 125\n  TSL range: 0.3326 - 0.3790 m\n  TSL mean ± std: 0.3571 ± 0.0068 m\n  TSL coefficient of variation: 1.89%\n\nBFLH_R:\n--------------------------------------------------\nMT Length Range: 0.3307 - 0.5238 m\nNumber of MT Length Points: 256\n\nSSDP:\n  Number of TSL estimates: 256\n  TSL range: 0.2956 - 0.3784 m\n  TSL mean ± std: 0.3414 ± 0.0125 m\n  TSL coefficient of variation: 3.66%\n\nSOLEUS_R:\n--------------------------------------------------\nMT Length Range: 0.2857 - 0.3521 m\nNumber of MT Length Points: 100\n\nSSDP:\n  Number of TSL estimates: 100\n  TSL range: 0.2792 - 0.2881 m\n  TSL mean ± std: 0.2836 ± 0.0013 m\n  TSL coefficient of variation: 0.47%\n\nTotal TSL-MT data points collected: 481\n\nCorrelation between MT Length and TSL estimates:\n  gaslat_r: r = 0.7613\n  bflh_r: r = 0.7670\n  soleus_r: r = 0.6232",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Tendon Slack Length Optimization</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/06-tsl-optimization.html#discussion",
+    "href": "chapters/06-tsl-optimization.html#discussion",
+    "title": "6  Tendon Slack Length Optimization",
+    "section": "6.4 Discussion",
+    "text": "6.4 Discussion\nChanging the error functions produced little difference compared to each other, but the range of tendon slack length estimates changed substantially with normalized fiber length range. The tendon slack length plots only show the estimates produced by SSDP, used in Manal’s original method. For each muscle, the tendon slack length estimated at each musculotendon length across a normalized fiber length range of 0.4 to 1.5 is plotted along with the corresponding force range. The highlighted regions show the range of musculotendon lengths in different activities, particularly an athletic cutting motion and squatting. This could introduce activity dependent inaccuracies when the musculotendon length is close to the ends of its range. For example, the tendon slack length estimate for the soleus may work for a squatting motion but not for an athletic cutting motion.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Tendon Slack Length Optimization</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/06-tsl-optimization.html#application-to-rodent-model",
+    "href": "chapters/06-tsl-optimization.html#application-to-rodent-model",
+    "title": "6  Tendon Slack Length Optimization",
+    "section": "6.5 Application to Rodent Model",
+    "text": "6.5 Application to Rodent Model\nAs mentioned in ?sec-musc-params, many muscles in the rat model lacked values for tendon slack length or had unreliable values, preventing muscle level analyses. To address this, we applied this tendon slack length optimization methodology to estimate tendon slack lengths for all muscles in the rat hindlimb model. With much more limited data on rodent muscle parameters and fiber length ranges, the optimization was only performed using the full normalized fiber length range and the sum of squared differences of pairs (ssdp) error function. For range of motion, we compared the model’s full range of motion as well as observed range of motion during normal gait compiled from baseline walking trials from the study detailed in Chapter 3. The results, compared with the parameters from Johnson’s papers (missing-reference?) are summarized in Table 6.1.\n\n\n\n\n\nTable 6.1\n\n\n\n\n\n\n\n\n\n\n\n\nAbbreviation\nJohnson TSL (mm)\nFull ROM TSL (mm)\nWalk TSL (mm)\n\n\n\n\nAB\n0.00\n0.00\n4.82\n\n\nAL\n4.50\n0.00\n0.00\n\n\nAM\n0.00\n4.49\n7.03\n\n\nBFa\n0.00\n0.19\n8.51\n\n\nBFp\n0.00\n4.87\n6.35\n\n\nCF\n0.00\n0.00\n0.00\n\n\nEDL\n9.00\n41.56\n43.47\n\n\nFDL\n8.70\n47.23\n48.64\n\n\nFHL\n9.70\n42.73\n44.28\n\n\nGA\n0.00\n3.59\n5.27\n\n\nGI\n0.00\n8.44\n8.59\n\n\nGMa\n4.80\n0.00\n0.00\n\n\nGMe\n0.00\n4.93\n7.70\n\n\nGMi\n0.00\n10.84\n12.49\n\n\nGP\n0.90\n6.24\n6.39\n\n\nGS\n0.00\n12.59\n12.34\n\n\nIP\n4.10\n0.00\n0.00\n\n\nLG\n9.40\n33.06\n33.48\n\n\nMG\n9.10\n31.88\n33.22\n\n\nOE\n0.00\n3.34\n4.02\n\n\nOI\n2.80\n8.31\n8.27\n\n\nPec\n0.00\n8.01\n12.64\n\n\nPer\n12.70\n38.56\n39.88\n\n\nPir\n0.00\n2.13\n4.04\n\n\nPla\n6.70\n33.14\n33.09\n\n\nPop\n0.00\n13.08\n12.49\n\n\nQF\n0.00\n3.01\n3.91\n\n\nRF\n6.60\n26.58\n28.29\n\n\nSM\n0.00\n0.00\n5.83\n\n\nSTa\n0.00\n9.70\n13.25\n\n\nSTp\n0.00\n0.00\n0.00\n\n\nSol\n9.50\n22.34\n24.49\n\n\nTA\n11.90\n23.94\n25.13\n\n\nTFL\n0.00\n1.65\n0.34\n\n\nTP\n12.40\n37.59\n38.56\n\n\nVI\n6.60\n23.26\n26.95\n\n\nVL\n6.60\n20.38\n24.47\n\n\nVM\n6.60\n23.51\n27.82\n\n\n\n\n\n\n\n\n\nFor our model, we chose the tendon slack lengths optimized from the gait kinematics as the model’s full range of motion reaches physiologically infeasible configurations.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Tendon Slack Length Optimization</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/07-muscle-analysis.html",
+    "href": "chapters/07-muscle-analysis.html",
+    "title": "7  Rodent Muscle Analysis",
+    "section": "",
+    "text": "7.1 Introduction",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Rodent Muscle Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/07-muscle-analysis.html#methods",
+    "href": "chapters/07-muscle-analysis.html#methods",
+    "title": "7  Rodent Muscle Analysis",
+    "section": "7.2 Methods",
+    "text": "7.2 Methods",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Rodent Muscle Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/07-muscle-analysis.html#results",
+    "href": "chapters/07-muscle-analysis.html#results",
+    "title": "7  Rodent Muscle Analysis",
+    "section": "7.3 Results",
+    "text": "7.3 Results",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Rodent Muscle Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/07-muscle-analysis.html#discussion",
+    "href": "chapters/07-muscle-analysis.html#discussion",
+    "title": "7  Rodent Muscle Analysis",
+    "section": "7.4 Discussion",
+    "text": "7.4 Discussion",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Rodent Muscle Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
+    "section": "",
+    "text": "Eng, Carolyn M., Laura H. Smallwood, Maria Pia Rainiero, Michele Lahey,\nSamuel R. Ward, and Richard L. Lieber. 2008. “Scaling of Muscle\nArchitecture and Fiber Types in the Rat Hindlimb.” Journal of\nExperimental Biology 211 (14): 2336–45. https://doi.org/10.1242/jeb.017640.",
+    "crumbs": [
+      "References"
+    ]
+  }
+]
