@@ -2,8 +2,11 @@
 
 ## Introduction
 
-- VML data 
-- [@wannopNormalizationGroundReaction2012]
+Inverse dynamics analyses of rodent locomotion can provide valuable insights into the biomechanics of movement, but comparing results across animals and studies can be challenging due to differences in body size, limb lengths, and other factors. Normalization techniques can help address these challenges by scaling joint moments to account for these differences, allowing for more meaningful comparisons. In this chapter, we explore various normalization methods for rodent inverse dynamics data and evaluate their effectiveness in improving the comparability of joint moment measurements.
+
+@wannopNormalizationGroundReaction2012 proposed a normalization method 
+
+We apply a similar approach by evaluating the scaling relationships between various candidate normalization measurements and the magnitudes of joint moments across a sample of 35 rats. We fit linear, power, and exponential models to these relationships and assess their goodness of fit using the coefficient of determination ($R^2$) to identify the most effective normalization strategies for rodent inverse dynamics data.
 
 ## Methods
 
@@ -23,9 +26,95 @@ All models were fit with nonlinear least squares (`scipy.optimize.curve_fit`, ma
 
 Knee flexion/extension showed the strongest scaling relationships across all joints, with the best-performing predictor given by `Mass*RightTibiaLength` under a power fit ($R^2 = 0.932$). The next-best knee predictors were `Mass*TotalLength` (power fit, $R^2 = 0.922$) and `Mass` (exponential fit, $R^2 = 0.907$). Across joint moments overall (mean of best-per-moment fits), `Mass*TotalLength` ranked highest, followed by `Mass` and `Mass*RightTibiaLength`, indicating that mass-length composite terms provided the most consistent normalization performance.
 
-{{< embed "../notebooks/normalization.ipynb#fig-lin-heatmap" >}}
-{{< embed "../notebooks/normalization.ipynb#fig-pow-heatmap" >}}
-{{< embed "../notebooks/normalization.ipynb#fig-exp-heatmap" >}}
+```{python}
+import plotly.express as px
+import polars as pl
+import pandas as pd
+from tabulate import tabulate
+from IPython.display import Markdown
+from pathlib import Path
+
+linear_fit_results = pl.read_csv(Path("..") / "data" / "linear_fit_results.csv").to_pandas()
+power_fit_results = pl.read_csv(Path("..") / "data" / "power_fit_results.csv").to_pandas()
+exp_fit_results = pl.read_csv(Path("..") / "data" / "exp_fit_results.csv").to_pandas()
+```
+
+
+```{python}
+#| label: fig-lin-heatmap
+#| fig-cap: "R^2 values for linear fits of joint moment magnitudes to candidate normalization measurements. Higher values (yellow) indicate better fit."
+
+linear_fit_pivot = linear_fit_results.pivot(
+  index="measurement",
+  columns="moment",
+  values="r2",
+)
+
+fig = px.imshow(
+  linear_fit_pivot,
+  text_auto=".2f",
+  labels=dict(x="Joint Moment", y="Measurement", color="R² Score"),
+  title="R² Heatmap of Joint Moment vs. Measurement (Linear Fit: y = ax + b)"
+)
+
+fig.show()
+```
+
+```{python}
+#| label: fig-pow-heatmap
+#| fig-cap: "R^2 values for power fits of joint moment magnitudes to candidate normalization measurements. Higher values (yellow) indicate better fit."
+
+power_fit_pivot = power_fit_results.pivot(
+  index="measurement",
+  columns="moment",
+  values="r2",
+)
+
+fig = px.imshow(
+  power_fit_pivot,
+  text_auto=".2f",
+  labels=dict(x="Joint Moment", y="Measurement", color="R² Score"),
+  title="R² Heatmap of Joint Moment vs. Measurement (Power Fit: y = a*x^b + c)"
+)
+fig.show()
+
+```
+
+```{python}
+#| label: fig-exp-heatmap
+#| fig-cap: "R^2 values for exponential fits of joint moment magnitudes to candidate normalization measurements. Higher values (yellow) indicate better fit."
+
+exponential_fit_pivot = exp_fit_results.pivot(
+    index="measurement",
+    columns="moment",
+    values="r2",
+)
+fig = px.imshow(
+    exponential_fit_pivot,
+    text_auto=".2f",
+    labels=dict(x="Joint Moment", y="Measurement", color="R² Score"),
+    title="R² Heatmap of Joint Moment vs. Measurement (Exponential Fit: y = a*exp(b*x) + c)"
+)
+
+fig.show()
+```
+
+The mean $R^2$ across joints for the best fit per moment is summarized in the table below. 
+
+```{python}
+# best_fits = fit_results.group_by(["measurement", "moment"]).agg(pl.col("r2").max().alias("best_r2"))
+
+# best_fits_summary = best_fits.group_by("measurement").agg(pl.col("best_r2").mean().alias("mean_best_r2")).sort("mean_best_r2", reverse=True)
+
+# Markdown(
+#     tabulate(
+#         best_fits_summary.to_pandas(), 
+#         headers=["Measurement", "Mean Best R²"], 
+#         tablefmt="github", 
+#         floatfmt=".3f"
+#     )
+# )
+```
 
 ## Discussion
 

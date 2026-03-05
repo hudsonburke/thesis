@@ -2,8 +2,63 @@
 
 ## Introduction
 
+While inverse kinematics and inverse dynamics analyses can provide insight into the overall movement and forces at the joints, they do not directly inform us about the behavior of individual muscles. To gain a deeper understanding of muscle function during movement, we can utilize muscle analysis tools in OpenSim like computed muscle control (CMC). This allows us to estimate muscle lengths, forces, and activations based on the kinematics and kinetics of the movement. 
+
+### Computed Muscle Control (CMC)
+CMC is an optimization-based algorithm that computes muscle excitations required to produce a desired movement. It takes into account the muscle's force-length and force-velocity properties, as well as the geometry of the musculoskeletal model. 
+
+
 ## Methods
+
+- 3 Baseline rats
+    - 6 trials per rat
+- 3 24w injured rats
+    - 6 trials per rat
+- CMC analysis using OpenSim API
+
+- Scale new model with new muscles and run CMC using ik and id
+
 
 ## Results
 
+Muscle activation graph for baseline rats:
+
+```{python}
+#| label: fig-baseline-activation
+#| fig-cap: "Muscle activation graph for baseline rats"
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# x-axis: time (normalized to gait cycle)
+# y-axis: muscle
+# color: activation level (0 to 1)
+
+# baseline_data = pd.read_csv("../data/baseline_muscle_activation.csv").pivot_table(index='muscle', columns='time', values='activation')
+
+# plt.figure()
+# sns.heatmap(baseline_data, cmap='YlOrRd', vmin=0, vmax=1, cbar_kws={'label': 'Activation'})
+# plt.xlabel("Time (normalized to gait cycle)")
+# plt.ylabel("Muscle")
+# plt.title("Muscle Activation Graph for Baseline Rats")
+# plt.legend(title="Muscle")
+# plt.show()
+
+```
+
+
+Muscle activation graph for injured rats:
+
+
+```{python}
+#| label: fig-injured-activation
+#| fig-cap: "Muscle activation graph for injured rats"
+
+
+
+```
+
+
 ## Discussion
+
+- Expect to see less activation in laterl gastrocnemius and more activation in tibialis anterior in injured rats compared to baseline rats.

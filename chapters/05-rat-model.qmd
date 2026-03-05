@@ -7,8 +7,10 @@ The methodology is described in brief here. The up-to-date model, version histor
 ## Prior Work
 
 Original model drawn from a [SimTK project](https://simtk.org/projects/rat_hlimb_model) which is based on Johnson et al. 2008 [@johnsonMusculoskeletalModelRat].
+
+
 - [@johnsonMusculoskeletalModelRat]
-- [@johnsonApplicationRatHindlimb2011a]
+- [@johnsonApplicationRatHindlimb2011]
 - [@engScalingMuscleArchitecture2008]
 - [@charlesMusculoskeletalGeometryMuscle2016]
 - [@ramalingasettyWholeBodyMusculoskeletalModel2021]
@@ -66,12 +68,7 @@ This means that for cylinders with small circumferences, the muscle path may be 
 ### Muscle path redefinition
 Johnson's original model relied heavily on wrapping surfaces, but a more recent work that built upon that original model and drew from Greene's [@greeneAnatomyRat] original anatomical text defined a large set of attachment points for muscles instead of relying on wrapping surfaces [@youngNeuromechanicalRatModel2018]. This newer model may avoid some of the issues with discontinuous muscle lengths. Unfortunately, that model was created for a software called [Animatlab](https://www.animatlab.com/), and there was no existing OpenSim version of it. 
 
-We were able to get in touch with the author of the Animatlab model, Dr. Young, who provided the original files and assisted in understanding the model structure. From there, we manually recorded the muscle attachment points seen in the model as seen in @tbl-young-attachments.
-
-```{python}
-#| label: tbl-young-attachments
-
-```
+We were able to get in touch with the author of the Animatlab model, Dr. Young, who provided the original files and assisted in understanding the model structure. From there, we manually recorded the muscle attachment points seen in the model as seen in @sec-young-attachments.
 
 The coordinate systems used in Animatlab differ from those in OpenSim, so a direct conversion is non-trivial. To be able to transfer the attachment points into our OpenSim model we needed to determine the necessary transformations between the coordinate systems. 
 The method we chose to do this was using mesh registration to align the bone geometries from the Animatlab model to those in our OpenSim model. Once aligned, we could apply the same transformations to the muscle attachment points to bring them into the OpenSim coordinate system. 
@@ -79,7 +76,7 @@ The method we chose to do this was using mesh registration to align the bone geo
 We utilize the [`open3d`](http://www.open3d.org/) [@zhouOpen3DModernLibrary2018] library to perform the mesh registration based on feature computation and the iterative closest point (ICP) algorithm. Additionally, we implement a function to compute the transformation matrices that will be used to transform the attachment points between models. 
 
 
-### Muscle Parameters {.sec-musc-params}
+### Muscle Parameters {#sec-musc-params}
 
 The original model uses the Thelen [@thelenAdjustmentMuscleMechanics2003] muscle model, which has been largely superseded by the Millard [@millarmillardFlexingComputationalMuscle2013] muscle model in OpenSim especially for muscle-level analysis.
 
