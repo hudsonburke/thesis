@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.22">
+<meta name="generator" content="quarto-1.9.32">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>4&nbsp; Normalization of Rodent Inverse Dynamics Data – Use of Rodents for Investigating Neuromuscular Injury and Rehabilation</title>
+<title>4&nbsp; Normalization of Rodent Inverse Dynamics Data – Use of Musculoskeletal Rodent Models for Investigating Neuromuscular Injury and Rehabilation</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -23,10 +23,64 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -37,13 +91,12 @@ ul.task-list li input[type="checkbox"] {
 <link href="../chapters/03-rat-vml.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e7fd89eb10c6ed14e7244b08785b4b10.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-52c0961b2438d16614a27dca80acc21d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-067f8ab80d092ae3595f7402c2c9b667.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-ca1cb3032aa6b9181247695f27e2facc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-ba377bcbac77ef6b16fc93106ad18526.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
@@ -81,6 +134,15 @@ ul.task-list li input[type="checkbox"] {
     document.body.classList.add('hypothesis-enabled');
   });
 </script>
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+<script type="text/javascript">
+window.PlotlyConfig = {MathJaxConfig: 'local'};
+if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}
+</script>
+<script type="module">import "https://cdn.plot.ly/plotly-3.3.1.min"</script>
+
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -307,26 +369,26 @@ window.Quarto = {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="../">Use of Rodents for Investigating Neuromuscular Injury and Rehabilation</a> 
+      <a href="../">Use of Musculoskeletal Rodent Models for Investigating Neuromuscular Injury and Rehabilation</a> 
         <div class="sidebar-tools-main tools-wide">
     <a href="https://github.com/hudsonburke/thesis/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
       <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Download"><i class="bi bi-download"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="../Use-of-Rodents-for-Investigating-Neuromuscular-Injury-and-Rehabilation.pdf">
+            <a class="dropdown-item sidebar-tools-main-item" href="../Use-of-Musculoskeletal-Rodent-Models-for-Investigating-Neuromuscular-Injury-and-Rehabilation.pdf">
               <i class="bi bi-file-pdf pe-1"></i>
             Download PDF
             </a>
           </li>
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="../Use-of-Rodents-for-Investigating-Neuromuscular-Injury-and-Rehabilation.docx">
+            <a class="dropdown-item sidebar-tools-main-item" href="../Use-of-Musculoskeletal-Rodent-Models-for-Investigating-Neuromuscular-Injury-and-Rehabilation.docx">
               <i class="bi bi-file-word pe-1"></i>
             Download Docx
             </a>
           </li>
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="../Use-of-Rodents-for-Investigating-Neuromuscular-Injury-and-Rehabilation.epub">
+            <a class="dropdown-item sidebar-tools-main-item" href="../Use-of-Musculoskeletal-Rodent-Models-for-Investigating-Neuromuscular-Injury-and-Rehabilation.epub">
               <i class="bi bi-journal pe-1"></i>
             Download ePub
             </a>
@@ -410,6 +472,18 @@ window.Quarto = {
  <span class="menu-text">References</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/A-young-attachments.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Appendix A: Young Model Muscle Attachment Points</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/B-rajagopal-mtl.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Appendix B: Rajagopal Model Muscle-Tendon Lengths Across Joint Configurations</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -452,74 +526,420 @@ window.Quarto = {
 
 <section id="introduction" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">4.1</span> Introduction</h2>
-<ul>
-<li>VML data</li>
-<li><span class="citation" data-cites="wannopNormalizationGroundReaction2012">(<a href="../references.html#ref-wannopNormalizationGroundReaction2012" role="doc-biblioref"><strong>wannopNormalizationGroundReaction2012?</strong></a>)</span></li>
-</ul>
+<p>Inverse dynamics analyses of rodent locomotion can provide valuable insight into how muscles, joints, and segment dynamics interact during gait. However, direct comparison of joint moments across animals is difficult because raw moment magnitudes are influenced by animal size, segment geometry, and locomotor speed. As a result, two animals with similar movement strategies can still exhibit different absolute moments simply because of scale effects.</p>
+<p>Normalization methods are designed to reduce this confounding size dependence by expressing joint moments relative to biologically meaningful scaling terms. When successful, normalization improves interpretability across subjects, strengthens between-group comparisons, and makes derived biomechanical conclusions more portable across studies. In this chapter, we evaluate candidate normalization measurements for rodent inverse-dynamics data by first quantifying how strongly each candidate explains variation in joint-moment magnitude.</p>
+<p><span class="citation" data-cites="wannopNormalizationGroundReaction2012">Wannop et al. (<a href="../references.html#ref-wannopNormalizationGroundReaction2012" role="doc-biblioref">2012</a>)</span> compared several approaches for normalizing ground reaction forces and moments across subjects, including simple division normalization, power-law normalization, and offset normalization. Their key point was that ratio scaling is only appropriate when the relationship between a biomechanical variable and the normalization term is well described by a proportional model with zero intercept. When the intercept is nonzero, simple division can leave residual size dependence; in that case, offset normalization, defined as subtracting the fitted intercept before dividing by the normalization variable, may perform better. They found that if there is a large enough data set, power curve or offset normalization methods are more effective than simple division normalization.</p>
+<p>We apply a similar approach by evaluating the scaling relationships between various candidate normalization measurements and the magnitudes of joint moments across a sample of 35 rats. We fit linear, power, and exponential models to these relationships and assess their goodness of fit using the coefficient of determination (<span class="math inline">\(R^2\)</span>) to screen candidate scaling relationships for later normalization analyses.</p>
 </section>
 <section id="methods" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="methods"><span class="header-section-number">4.2</span> Methods</h2>
-<p>We analyzed inverse-dynamics data from 35 rats (32 baseline animals: BAA01-BAA32; 3 older animals: Old01-Old03). Candidate normalization measurements included body mass, body and segment lengths, and walking speed, as well as simple composite terms motivated by dynamic similarity. Specifically, we evaluated the following predictors: <code>Mass</code>, <code>TotalLength</code>, <code>RightTibiaLength</code>, <code>RightFemurLength</code>, <code>RightFootLength</code>, <code>RightWalkingSpeed</code>, <code>RightLegLength</code> (<code>RightTibiaLength + RightFemurLength</code>), <code>Mass*TotalLength</code>, <code>Mass*RightTibiaLength</code>, and <code>Mass*Speed</code> (<code>Mass * RightWalkingSpeed</code>).</p>
-<p>For each predictor, we modeled the magnitude of each right-limb joint moment (<code>hip_r_flx_moment</code>, <code>hip_r_add_moment</code>, <code>hip_r_int_moment</code>, <code>knee_r_flx_moment</code>, <code>ankle_r_flx_moment</code>) using three candidate functional forms:</p>
+<p>We analyzed inverse-dynamics data from 35 rats (32 baseline animals: BAA01-BAA32; 3 older animals: Old01-Old03). Candidate normalization measurements included body mass, whole-body and segment lengths, and walking speed, along with simple composite terms motivated by dynamic similarity. Specifically, we evaluated the following predictors: <code>Mass</code>, <code>TotalLength</code>, <code>RightTibiaLength</code>, <code>RightFemurLength</code>, <code>RightFootLength</code>, <code>RightWalkingSpeed</code>, <code>RightLegLength</code> (<code>RightTibiaLength + RightFemurLength</code>), <code>Mass*TotalLength</code>, <code>Mass*RightTibiaLength</code>, and <code>Mass*Speed</code> (<code>Mass * RightWalkingSpeed</code>).</p>
+<p>These predictors were selected to span both easily measured global descriptors (e.g., body mass) and limb-specific descriptors that may better capture local mechanical scaling at individual joints. Composite terms were included because many biomechanical quantities are expected to scale with more than one physical dimension (for example, force-like and moment-like terms may couple mass and length).</p>
+<p>For each predictor, we modeled the peak magnitude of each right-limb joint moment (<code>hip_r_flx_moment</code>, <code>hip_r_add_moment</code>, <code>hip_r_int_moment</code>, <code>knee_r_flx_moment</code>, <code>ankle_r_flx_moment</code>) from OpenSim inverse-dynamics analysis using two candidate scaling models:</p>
 <ul>
-<li>Linear: <span class="math inline">\(y = ax + b\)</span></li>
+<li>Linear Offset: <span class="math inline">\(y = ax + b\)</span></li>
 <li>Power: <span class="math inline">\(y = ax^b + c\)</span></li>
-<li>Exponential: <span class="math inline">\(y = ae^{bx} + c\)</span></li>
 </ul>
-<p>Prior to fitting, rows with zero values in the current predictor were excluded (e.g., missing <code>TotalLength</code> entries) so that each measurement-moment model used only valid observations for that predictor. Joint moments were evaluated as absolute values to compare scaling relationships in magnitude rather than direction.</p>
-<p>All models were fit with nonlinear least squares (<code>scipy.optimize.curve_fit</code>, max function evaluations = 50,000). Goodness of fit was quantified using the coefficient of determination, <span class="math inline">\(R^2 = 1 - \frac{SS_{res}}{SS_{tot}}\)</span>, computed for each measurement-moment-model combination. We summarized the resulting <span class="math inline">\(R^2\)</span> values in heatmaps (measurement × joint moment) separately for linear, power, and exponential fits to identify the most consistent normalization candidates across joints.</p>
+<p>Prior to fitting, rows with zero values in the current predictor were excluded (e.g., missing <code>TotalLength</code> entries) so that each measurement-moment model used only valid observations for that predictor. Peak joint moments were analyzed in absolute-value form to compare scaling relationships independent of sign convention and moment direction, focusing the analysis on magnitude scaling.</p>
+<p>All models were fit with nonlinear least squares (<code>scipy.optimize.curve_fit</code>, max function evaluations = 50,000). Goodness of fit was quantified using the coefficient of determination, <span class="math inline">\(R^2 = 1 - \frac{SS_{res}}{SS_{tot}}\)</span>, computed for each measurement-moment-model combination. Higher <span class="math inline">\(R^2\)</span> indicates that the candidate measurement explains a larger fraction of variation in joint-moment magnitude under the specified model form.</p>
+<p>In this chapter, <span class="math inline">\(R^2\)</span> is used as an initial screening metric for plausible normalization variables rather than as a direct test of normalization effectiveness. This distinction is important: a strong scaling fit suggests a useful candidate denominator, but does not by itself confirm that post-normalization values are independent of body size. A closer replication of the Wannop framework would additionally test for residual dependence after normalization.</p>
 </section>
 <section id="results" class="level2" data-number="4.3">
 <h2 data-number="4.3" class="anchored" data-anchor-id="results"><span class="header-section-number">4.3</span> Results</h2>
-<p>Knee flexion/extension showed the strongest scaling relationships across all joints, with the best-performing predictor given by <code>Mass*RightTibiaLength</code> under a power fit (<span class="math inline">\(R^2 = 0.932\)</span>). The next-best knee predictors were <code>Mass*TotalLength</code> (power fit, <span class="math inline">\(R^2 = 0.922\)</span>) and <code>Mass</code> (exponential fit, <span class="math inline">\(R^2 = 0.907\)</span>). Across joint moments overall (mean of best-per-moment fits), <code>Mass*TotalLength</code> ranked highest, followed by <code>Mass</code> and <code>Mass*RightTibiaLength</code>, indicating that mass-length composite terms provided the most consistent normalization performance.</p>
-<div class="quarto-embed-nb-cell" data-notebook="/home/runner/work/thesis/thesis/notebooks/normalization.ipynb" data-notebook-title="Normalization Analysis" data-notebook-cellid="cell-fig-lin-heatmap">
-<div id="cell-fig-lin-heatmap" class="cell">
+<p>We summarized the resulting <span class="math inline">\(R^2\)</span> values in heatmaps (measurement × joint moment) separately for linear <a href="#fig-lin-heatmap" class="quarto-xref">Figure&nbsp;<span>4.1</span></a> and power <a href="#fig-pow-heatmap" class="quarto-xref">Figure&nbsp;<span>4.2</span></a> fits to identify the most consistent candidate predictors across joints. Viewing both model classes side-by-side helps distinguish whether a predictor is broadly useful regardless of model form or only performs well under one functional relationship.</p>
+<div id="88810fe2" class="cell" data-execution_count="1">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.express <span class="im">as</span> px</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> curve_fit</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pl.read_csv(Path(<span class="st">".."</span>) <span class="op">/</span> <span class="st">"data"</span> <span class="op">/</span> <span class="st">"normalization_data.csv"</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> r2_score(y_true, y_pred):</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    ss_res <span class="op">=</span> np.<span class="bu">sum</span>((y_true <span class="op">-</span> y_pred) <span class="op">**</span> <span class="dv">2</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    ss_tot <span class="op">=</span> np.<span class="bu">sum</span>((y_true <span class="op">-</span> np.mean(y_true)) <span class="op">**</span> <span class="dv">2</span>)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> ss_tot <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Handles horizontal data: perfect fit if ss_res is also 0</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="fl">1.0</span> <span class="cf">if</span> ss_res <span class="op">==</span> <span class="dv">0</span> <span class="cf">else</span> <span class="fl">0.0</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.clip(<span class="dv">1</span> <span class="op">-</span> (ss_res <span class="op">/</span> ss_tot), <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> lin_off(xx, a, b):</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> a <span class="op">*</span> xx <span class="op">+</span> b</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> pow_off(xx, a, b, c):</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> a <span class="op">*</span> (xx <span class="op">**</span> b) <span class="op">+</span> c</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co"># def exp_off(xx, a, b, c):</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="co">#     z = np.clip(xx, a_min=1e-6, a_max=np.inf)  # Avoid issues with log(0) in curve fitting</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co">#     return a * np.exp(b * z) + c</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>fit_funcs <span class="op">=</span> {</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Linear"</span>: lin_off, </span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Power"</span>: pow_off, </span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>  <span class="co"># "Exponential": exp_off</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>raw_measurements <span class="op">=</span> [<span class="st">"Mass"</span>, <span class="st">"TotalLength"</span>, <span class="st">"RightTibiaLength"</span>, <span class="st">"RightFemurLength"</span>, <span class="st">"RightFootLength"</span>, <span class="st">"RightWalkingSpeed"</span>]</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>computed_measurements <span class="op">=</span> {</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>  <span class="st">"RightLegLength"</span>: <span class="kw">lambda</span> df: df[<span class="st">"RightTibiaLength"</span>] <span class="op">+</span> df[<span class="st">"RightFemurLength"</span>],</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Mass*TotalLength"</span>: <span class="kw">lambda</span> df: df[<span class="st">"Mass"</span>] <span class="op">*</span> df[<span class="st">"TotalLength"</span>],</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Mass*RightTibiaLength"</span>: <span class="kw">lambda</span> df: df[<span class="st">"Mass"</span>] <span class="op">*</span> df[<span class="st">"RightTibiaLength"</span>],</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Mass*Speed"</span>: <span class="kw">lambda</span> df: df[<span class="st">"Mass"</span>] <span class="op">*</span> df[<span class="st">"RightWalkingSpeed"</span>],</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>measurements <span class="op">=</span> raw_measurements <span class="op">+</span> <span class="bu">list</span>(computed_measurements.keys())</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>moments <span class="op">=</span> [col <span class="cf">for</span> col <span class="kw">in</span> df.columns <span class="cf">if</span> col <span class="kw">not</span> <span class="kw">in</span> measurements <span class="kw">and</span> col <span class="op">!=</span> <span class="st">"Subject"</span>] </span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.with_columns([</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>    <span class="op">*</span>(computed_measurements[name](df).alias(name) <span class="cf">for</span> name <span class="kw">in</span> computed_measurements)</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>])</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>fit_results <span class="op">=</span> pl.DataFrame(schema<span class="op">=</span>{</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>  <span class="st">"measurement"</span>: pl.String,</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>  <span class="st">"moment"</span>: pl.String,</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>  <span class="st">"fit_type"</span>: pl.String,</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>  <span class="st">"parameters"</span>: pl.List(pl.Float64),</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>  <span class="st">"covariance"</span>: pl.List(pl.Float64),</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>  <span class="st">"r2"</span>: pl.Float64,</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> measurement <span class="kw">in</span> measurements:</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>  x <span class="op">=</span> df.select(pl.col(measurement)).to_numpy().flatten()</span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>  mask <span class="op">=</span> (x <span class="op">!=</span> <span class="dv">0</span>) <span class="op">&amp;</span> np.isfinite(x)</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>  x <span class="op">=</span> x[mask]</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> moment <span class="kw">in</span> moments:</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> df.select(<span class="bu">abs</span>(pl.col(moment))).to_numpy().flatten()</span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> y[mask]</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> name, fit <span class="kw">in</span> fit_funcs.items():</span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>      params, cov <span class="op">=</span> curve_fit(fit, x, y, maxfev<span class="op">=</span><span class="dv">50000</span>)</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>      r2 <span class="op">=</span> r2_score(y, fit(x, <span class="op">*</span>params))</span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>      fit_results <span class="op">=</span> fit_results.vstack(</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>        pl.DataFrame({</span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>          <span class="st">"measurement"</span>: measurement,</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>          <span class="st">"moment"</span>: moment,</span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>          <span class="st">"fit_type"</span>: name,</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>          <span class="st">"parameters"</span>: [params.tolist()],</span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>          <span class="st">"covariance"</span>: [cov.flatten().tolist()],</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>          <span class="st">"r2"</span>: r2,</span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>        })</span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a><span class="co"># Summary values used in inline text and table output.</span></span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>knee_best <span class="op">=</span> (</span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>  fit_results</span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>  .<span class="bu">filter</span>(pl.col(<span class="st">"moment"</span>) <span class="op">==</span> <span class="st">"knee_r_flx_moment"</span>)</span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a>  .sort(<span class="st">"r2"</span>, descending<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>  .row(<span class="dv">0</span>, named<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>knee_best_measurement <span class="op">=</span> knee_best[<span class="st">"measurement"</span>]</span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>knee_best_fit_type <span class="op">=</span> knee_best[<span class="st">"fit_type"</span>].lower()</span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>knee_best_r2 <span class="op">=</span> knee_best[<span class="st">"r2"</span>]</span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>best_fits <span class="op">=</span> fit_results.group_by([<span class="st">"measurement"</span>, <span class="st">"moment"</span>]).agg(</span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a>  pl.col(<span class="st">"r2"</span>).<span class="bu">max</span>().alias(<span class="st">"best_r2"</span>)</span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a>best_fits_summary <span class="op">=</span> (</span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>  best_fits</span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a>  .group_by(<span class="st">"measurement"</span>)</span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>  .agg(pl.col(<span class="st">"best_r2"</span>).mean().alias(<span class="st">"mean_best_r2"</span>))</span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>fit_type_means <span class="op">=</span> (</span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a>  fit_results</span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>  .group_by([<span class="st">"measurement"</span>, <span class="st">"fit_type"</span>])</span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>  .agg(pl.col(<span class="st">"r2"</span>).mean().alias(<span class="st">"mean_r2"</span>))</span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>linear_means <span class="op">=</span> (</span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a>  fit_type_means</span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a>  .<span class="bu">filter</span>(pl.col(<span class="st">"fit_type"</span>) <span class="op">==</span> <span class="st">"Linear"</span>)</span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a>  .select([<span class="st">"measurement"</span>, pl.col(<span class="st">"mean_r2"</span>).alias(<span class="st">"mean_linear_offset_r2"</span>)])</span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a>power_means <span class="op">=</span> (</span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a>  fit_type_means</span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a>  .<span class="bu">filter</span>(pl.col(<span class="st">"fit_type"</span>) <span class="op">==</span> <span class="st">"Power"</span>)</span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a>  .select([<span class="st">"measurement"</span>, pl.col(<span class="st">"mean_r2"</span>).alias(<span class="st">"mean_power_r2"</span>)])</span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a>best_fits_summary_full <span class="op">=</span> (</span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a>  best_fits_summary</span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a>  .join(linear_means, on<span class="op">=</span><span class="st">"measurement"</span>, how<span class="op">=</span><span class="st">"left"</span>)</span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a>  .join(power_means, on<span class="op">=</span><span class="st">"measurement"</span>, how<span class="op">=</span><span class="st">"left"</span>)</span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a>  .sort(<span class="st">"mean_best_r2"</span>, descending<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a>top_measurements <span class="op">=</span> best_fits_summary_full.select(<span class="st">"measurement"</span>).to_series().to_list()</span>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a>top_1, top_2, top_3 <span class="op">=</span> top_measurements[:<span class="dv">3</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<div id="cell-fig-lin-heatmap" class="cell" data-execution_count="2">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>linear_fit_results <span class="op">=</span> fit_results.<span class="bu">filter</span>(pl.col(<span class="st">"fit_type"</span>) <span class="op">==</span> <span class="st">"Linear"</span>).to_pandas()</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>linear_fit_pivot <span class="op">=</span> linear_fit_results.pivot(</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  index<span class="op">=</span><span class="st">"measurement"</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  columns<span class="op">=</span><span class="st">"moment"</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  values<span class="op">=</span><span class="st">"r2"</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.imshow(</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  linear_fit_pivot,</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  text_auto<span class="op">=</span><span class="st">".2f"</span>,</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  labels<span class="op">=</span><span class="bu">dict</span>(x<span class="op">=</span><span class="st">"Joint Moment"</span>, y<span class="op">=</span><span class="st">"Measurement"</span>, color<span class="op">=</span><span class="st">"R² Score"</span>),</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  title<span class="op">=</span><span class="st">"R² Heatmap of Joint Moment vs. Measurement (Linear Fit: y = ax + b)"</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div id="fig-lin-heatmap" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-lin-heatmap-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<pre><code>Unable to display output for mime type(s): application/vnd.plotly.v1+json</code></pre>
+<div>            <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG"></script><script type="text/javascript">if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}</script>                <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.3.1.min.js" integrity="sha256-4rD3fugVb/nVJYUv5Ky3v+fYXoouHaBSP20WIJuEiWg=" crossorigin="anonymous"></script>                <div id="27fa6d50-b785-4679-ac7d-b3cc6f510e48" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("27fa6d50-b785-4679-ac7d-b3cc6f510e48")) {                    Plotly.newPlot(                        "27fa6d50-b785-4679-ac7d-b3cc6f510e48",                        [{"coloraxis":"coloraxis","name":"0","texttemplate":"%{z:.2f}","x":["ankle_r_flx_moment","hip_r_add_moment","hip_r_flx_moment","hip_r_int_moment","knee_r_flx_moment"],"y":["Mass","Mass*RightTibiaLength","Mass*Speed","Mass*TotalLength","RightFemurLength","RightFootLength","RightLegLength","RightTibiaLength","RightWalkingSpeed","TotalLength"],"z":{"dtype":"f8","bdata":"UHg1a6rA4T\u002fC87lun73SP2Kp2EYpgtI\u002foIZVynM5qD9q3Z5XPATtP9DwA3OTA+E\u002foIShPdoRzz+QMXpx5KLOP1Bzgb9syaY\u002fmHCwH\u002f567T92A76X2oHhP8BFfAp13cw\u002f1Hz27yDAwD8AACRCze7iPnJBUoFcBeE\u002fjgQfO6Eo4z928HyV\u002fIPTP1pkcZ8pN9Q\u002fMMic5f1WrT9SI8pYWl7tP2bqRqsGYtw\u002fsJAu1Bj3xz8kWg+2Fw7ZP5jiolzJsr0\u002f4QWp2glW5D\u002fmZyY8wrHbP4R507GlZsY\u002fPN9ZQ90fyj\u002fQa6AQhKOvPwy76dTcuuI\u002f6I2BigBh3z8EW\u002ft9Tv7DP7Q2oTg5HNI\u002fsI3S431XtD9oYt35hEnqP4IFn\u002fu60No\u002fMD9nLbNluD+kpYmpU7\u002fBPzCGYXaBJ6I\u002fIO0EF\u002fUP6j84yq4ctgfDPwDiw+vFYaI\u002fAHB\u002fLQhwNT8wtdUxbe6jPzDggXuxqKQ\u002f0bSfIiKG4j9Uagv\u002fXSrRP+L+mQAobNA\u002foAvr64DLtD\u002fSE09Cwe7pPw==","shape":"10, 5"},"type":"heatmap","xaxis":"x","yaxis":"y","hovertemplate":"Joint Moment: %{x}\u003cbr\u003eMeasurement: %{y}\u003cbr\u003eR\u00b2 Score: %{z}\u003cextra\u003e\u003c\u002fextra\u003e"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"},"margin":{"b":0,"l":0,"r":0,"t":30}}},"xaxis":{"anchor":"y","domain":[0.0,1.0],"scaleanchor":"y","constrain":"domain","title":{"text":"Joint Moment"}},"yaxis":{"anchor":"x","domain":[0.0,1.0],"autorange":"reversed","constrain":"domain","title":{"text":"Measurement"}},"coloraxis":{"colorbar":{"title":{"text":"R\u00b2 Score"}},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"title":{"text":"R\u00b2 Heatmap of Joint Moment vs. Measurement (Linear Fit: y = ax + b)"}},                        {"responsive": true}                    ).then(function(){
+                            
+var gd = document.getElementById('27fa6d50-b785-4679-ac7d-b3cc6f510e48');
+var x = new MutationObserver(function (mutations, observer) {{
+        var display = window.getComputedStyle(gd).display;
+        if (!display || display === 'none') {{
+            console.log([gd, 'removed!']);
+            Plotly.purge(gd);
+            observer.disconnect();
+        }}
+}});
+
+// Listen for the removal of the full notebook cells
+var notebookContainer = gd.closest('#notebook-container');
+if (notebookContainer) {{
+    x.observe(notebookContainer, {childList: true});
+}}
+
+// Listen for the clearing of the current output cell
+var outputEl = gd.closest('.output');
+if (outputEl) {{
+    x.observe(outputEl, {childList: true});
+}}
+
+                        })                };            </script>        </div>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-lin-heatmap-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4.1
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-lin-heatmap-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.1: R^2 values for linear fits of joint moment magnitudes to candidate normalization measurements. Higher values (yellow) indicate better fit.
 </figcaption>
 </figure>
 </div>
 </div>
-</div>
-<div class="quarto-embed-nb-cell" data-notebook="/home/runner/work/thesis/thesis/notebooks/normalization.ipynb" data-notebook-title="Normalization Analysis" data-notebook-cellid="cell-fig-pow-heatmap">
-<div id="cell-fig-pow-heatmap" class="cell" data-execution_count="11">
+<div id="cell-fig-pow-heatmap" class="cell" data-execution_count="3">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>power_fit_results <span class="op">=</span> fit_results.<span class="bu">filter</span>(pl.col(<span class="st">"fit_type"</span>) <span class="op">==</span> <span class="st">"Power"</span>).to_pandas()</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>power_fit_pivot <span class="op">=</span> power_fit_results.pivot(</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  index<span class="op">=</span><span class="st">"measurement"</span>,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  columns<span class="op">=</span><span class="st">"moment"</span>,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  values<span class="op">=</span><span class="st">"r2"</span>,</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.imshow(</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  power_fit_pivot,</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  text_auto<span class="op">=</span><span class="st">".2f"</span>,</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  labels<span class="op">=</span><span class="bu">dict</span>(x<span class="op">=</span><span class="st">"Joint Moment"</span>, y<span class="op">=</span><span class="st">"Measurement"</span>, color<span class="op">=</span><span class="st">"R² Score"</span>),</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  title<span class="op">=</span><span class="st">"R² Heatmap of Joint Moment vs. Measurement (Power Fit: y = a*x^b + c)"</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div id="fig-pow-heatmap" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-pow-heatmap-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<pre><code>Unable to display output for mime type(s): application/vnd.plotly.v1+json</code></pre>
+<div>            <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG"></script><script type="text/javascript">if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}</script>                <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.3.1.min.js" integrity="sha256-4rD3fugVb/nVJYUv5Ky3v+fYXoouHaBSP20WIJuEiWg=" crossorigin="anonymous"></script>                <div id="b5db38d3-3340-4f0f-82f7-8f29b5f3028d" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("b5db38d3-3340-4f0f-82f7-8f29b5f3028d")) {                    Plotly.newPlot(                        "b5db38d3-3340-4f0f-82f7-8f29b5f3028d",                        [{"coloraxis":"coloraxis","name":"0","texttemplate":"%{z:.2f}","x":["ankle_r_flx_moment","hip_r_add_moment","hip_r_flx_moment","hip_r_int_moment","knee_r_flx_moment"],"y":["Mass","Mass*RightTibiaLength","Mass*Speed","Mass*TotalLength","RightFemurLength","RightFootLength","RightLegLength","RightTibiaLength","RightWalkingSpeed","TotalLength"],"z":{"dtype":"f8","bdata":"EgvPl9cb4j8G+1PnmGTVPwrBVopFttM\u002fEH+fpYRlqj\u002fIUzqygwTtP+onA4sYi+E\u002f0N99v9TV0z\u002fOuDG+L5bQPwAQp9nIJKk\u002fx6Es1orV7T9WcZrqUcDhPxiHe4OZZs8\u002fDLJJC5sZxT8AKK8afOt+P0vs7czpM+M\u002fktpWJ7zb4z8opcNfviDVP+yPPC+fSdY\u002fKHqyPf9vsD8oo0rjZ3\u002ftPyJpeFmKiNw\u002frF5vQw1xzD+kFDzX52PaP+T7cWzTLsA\u002fK4nxyY9H5z+a4XhHQbTbP1i+B5OvzMk\u002fPNe3rw2jyj8wmR7k+8KwPzADD8NDO+Q\u002fmF04PQRh3z+4xjDnYn7QP6hVpybi2NI\u002fAFqXIht1tT9SK6pVAK7qPzBvFwRQqtw\u002fhMwxKXmX1D\u002f0o8DVi\u002fTDPzDoCDE\u002fLaI\u002fzOpQSxLB6j8wJgt7uorGPzA8bf1h\u002faI\u002fgCGd3+ljej+gJ5J83pCkP2jnGsmui7Y\u002fs0FCuKyG4j+gBD+HnTTTPxIh1SezotA\u002fQAfUX0lJtT+1dVAHlXXqPw==","shape":"10, 5"},"type":"heatmap","xaxis":"x","yaxis":"y","hovertemplate":"Joint Moment: %{x}\u003cbr\u003eMeasurement: %{y}\u003cbr\u003eR\u00b2 Score: %{z}\u003cextra\u003e\u003c\u002fextra\u003e"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"},"margin":{"b":0,"l":0,"r":0,"t":30}}},"xaxis":{"anchor":"y","domain":[0.0,1.0],"scaleanchor":"y","constrain":"domain","title":{"text":"Joint Moment"}},"yaxis":{"anchor":"x","domain":[0.0,1.0],"autorange":"reversed","constrain":"domain","title":{"text":"Measurement"}},"coloraxis":{"colorbar":{"title":{"text":"R\u00b2 Score"}},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"title":{"text":"R\u00b2 Heatmap of Joint Moment vs. Measurement (Power Fit: y = a*x^b + c)"}},                        {"responsive": true}                    ).then(function(){
+                            
+var gd = document.getElementById('b5db38d3-3340-4f0f-82f7-8f29b5f3028d');
+var x = new MutationObserver(function (mutations, observer) {{
+        var display = window.getComputedStyle(gd).display;
+        if (!display || display === 'none') {{
+            console.log([gd, 'removed!']);
+            Plotly.purge(gd);
+            observer.disconnect();
+        }}
+}});
+
+// Listen for the removal of the full notebook cells
+var notebookContainer = gd.closest('#notebook-container');
+if (notebookContainer) {{
+    x.observe(notebookContainer, {childList: true});
+}}
+
+// Listen for the clearing of the current output cell
+var outputEl = gd.closest('.output');
+if (outputEl) {{
+    x.observe(outputEl, {childList: true});
+}}
+
+                        })                };            </script>        </div>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-pow-heatmap-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4.2
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pow-heatmap-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.2: R^2 values for power fits of joint moment magnitudes to candidate normalization measurements. Higher values (yellow) indicate better fit.
 </figcaption>
 </figure>
 </div>
 </div>
-</div>
-<div class="quarto-embed-nb-cell" data-notebook="/home/runner/work/thesis/thesis/notebooks/normalization.ipynb" data-notebook-title="Normalization Analysis" data-notebook-cellid="cell-fig-exp-heatmap">
-<div id="cell-fig-exp-heatmap" class="cell">
-<div id="fig-exp-heatmap" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-exp-heatmap" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="4">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-exp-heatmap-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<pre><code>Unable to display output for mime type(s): application/vnd.plotly.v1+json</code></pre>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># exp_fit_results = fit_results.filter(pl.col("fit_type") == "Exponential").to_pandas()</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># exponential_fit_pivot = exp_fit_results.pivot(</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#     index="measurement",</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">#     columns="moment",</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">#     values="r2",</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># )</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># fig = px.imshow(</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">#     exponential_fit_pivot,</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">#     text_auto=".2f",</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co">#     labels=dict(x="Joint Moment", y="Measurement", color="R² Score"),</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co">#     title="R² Heatmap of Joint Moment vs. Measurement (Exponential Fit: y = a*exp(b*x) + c)"</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co"># )</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co"># fig.show()</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-exp-heatmap-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;4.3
 </figcaption>
 </figure>
 </div>
+<p>Knee flexion/extension showed the strongest scaling relationships across all joints, with the strongest fitted association given by Mass*RightTibiaLength under a power fit (<span class="math inline">\(R^2 =\)</span> 0.932). Across joint moments overall (mean of best-per-moment fits), Mass*TotalLength ranked highest, followed by Mass and Mass*RightTibiaLength, indicating that mass-length composite terms showed the most consistent fit across moments.</p>
+<p>The mean <span class="math inline">\(R^2\)</span> across joints for the best fit per moment can be computed from the fitted models.</p>
+<div class="cell" data-execution_count="5">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> Markdown <span class="im">as</span> md</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tabulate <span class="im">import</span> tabulate</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>best_fits_summary_display <span class="op">=</span> (</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  best_fits_summary_full</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  .rename(</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>      <span class="st">"measurement"</span>: <span class="st">"Measurement"</span>,</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>      <span class="st">"mean_best_r2"</span>: <span class="st">"Mean Best R²"</span>,</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>      <span class="st">"mean_linear_offset_r2"</span>: <span class="st">"Mean Linear Offset R²"</span>,</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>      <span class="st">"mean_power_r2"</span>: <span class="st">"Mean Power R²"</span>,</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>md(</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>  tabulate(</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    best_fits_summary_display.to_pandas(), </span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    headers<span class="op">=</span><span class="st">"keys"</span>, </span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    showindex<span class="op">=</span><span class="va">False</span>,</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    tablefmt<span class="op">=</span><span class="st">"github"</span>,</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    floatfmt<span class="op">=</span><span class="st">".3f"</span>,</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div id="tbl-best-fits" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="5">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-best-fits-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;4.1: Mean R² values across joints for the best fit per moment.
+</figcaption>
+<div aria-describedby="tbl-best-fits-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="5">
+<table class="cell caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 28%">
+<col style="width: 19%">
+<col style="width: 30%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Measurement</th>
+<th>Mean Best R²</th>
+<th>Mean Linear Offset R²</th>
+<th>Mean Power R²</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Mass*TotalLength</td>
+<td>0.457</td>
+<td>0.439</td>
+<td>0.457</td>
+</tr>
+<tr class="even">
+<td>Mass</td>
+<td>0.433</td>
+<td>0.418</td>
+<td>0.433</td>
+</tr>
+<tr class="odd">
+<td>Mass*RightTibiaLength</td>
+<td>0.420</td>
+<td>0.396</td>
+<td>0.420</td>
+</tr>
+<tr class="even">
+<td>TotalLength</td>
+<td>0.410</td>
+<td>0.399</td>
+<td>0.410</td>
+</tr>
+<tr class="odd">
+<td>RightLegLength</td>
+<td>0.392</td>
+<td>0.366</td>
+<td>0.392</td>
+</tr>
+<tr class="even">
+<td>RightFemurLength</td>
+<td>0.387</td>
+<td>0.355</td>
+<td>0.387</td>
+</tr>
+<tr class="odd">
+<td>RightTibiaLength</td>
+<td>0.359</td>
+<td>0.301</td>
+<td>0.359</td>
+</tr>
+<tr class="even">
+<td>Mass*Speed</td>
+<td>0.315</td>
+<td>0.287</td>
+<td>0.315</td>
+</tr>
+<tr class="odd">
+<td>RightFootLength</td>
+<td>0.308</td>
+<td>0.292</td>
+<td>0.308</td>
+</tr>
+<tr class="even">
+<td>RightWalkingSpeed</td>
+<td>0.070</td>
+<td>0.053</td>
+<td>0.070</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
 </div>
 </div>
 </section>
 <section id="discussion" class="level2" data-number="4.4">
 <h2 data-number="4.4" class="anchored" data-anchor-id="discussion"><span class="header-section-number">4.4</span> Discussion</h2>
-<p>While this methodology shows promise in normalizing rodent inverse dynamics data, there are several limitations to consider. The small sample size limits the generalizability of the findings. Additionally, the lack of an age-matched control dataset makes it difficult to fully validate the normalization methods proposed. Ideally, there would be an age-matched control dataset to compare against, but this was not available. Future work should consider collecting such data to validate the normalization methods proposed here.</p>
+<p>This workflow provides a practical first-pass strategy for identifying candidate scaling variables in rodent inverse dynamics, but several limitations should be considered when interpreting the findings. First, the sample size is modest, which increases sensitivity to subject-level variability and may limit generalizability. Additionally, the dataset is not fully age-balanced, with only three older animals included, which may bias scaling relationships if age-related changes in biomechanics are present. The analysis also focuses on peak moment magnitudes rather than time-series data, which may miss important dynamic scaling effects.</p>
+<p>Most importantly, the present analysis evaluates pre-normalization model fit rather than post-normalization independence from size. Consequently, these results should be interpreted as a screening stage for candidate normalization terms, not as a complete validation. A stronger validation pipeline would normalize moments using each candidate term, then explicitly test residual correlations with mass and segment length and evaluate whether between-subject dispersion is reduced in a biologically meaningful way.</p>
+<p>Future work should therefore prioritize larger, age-balanced datasets and direct post-normalization diagnostics (residual-trend testing, variance reduction metrics, and cross-cohort reproducibility) to determine which scaling approach is most robust for translational rodent biomechanics.</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-wannopNormalizationGroundReaction2012" class="csl-entry" role="listitem">
+Wannop, John, Jay Worobets, and Darren Stefanyshyn. 2012. <span>“Normalization of <span>Ground Reaction Forces</span>, <span>Joint Moments</span>, and <span>Free Moments</span> in <span>Human Locomotion</span>.”</span> <em>Journal of Applied Biomechanics</em> 28 (December): 665–76. <a href="https://doi.org/10.1123/jab.28.6.665">https://doi.org/10.1123/jab.28.6.665</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
