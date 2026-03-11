@@ -2,41 +2,159 @@
 
 ## Introduction
 
-Inverse dynamics analyses of rodent locomotion can provide valuable insights into the biomechanics of movement, but comparing results across animals and studies can be challenging due to differences in body size, limb lengths, and other factors. Normalization techniques can help address these challenges by scaling joint moments to account for these differences, allowing for more meaningful comparisons. In this chapter, we explore various normalization methods for rodent inverse dynamics data and evaluate their effectiveness in improving the comparability of joint moment measurements.
+Inverse dynamics analyses of rodent locomotion can provide valuable insight into how muscles, joints, and segment dynamics interact during gait. However, direct comparison of joint moments across animals is difficult because raw moment magnitudes are influenced by animal size, segment geometry, and locomotor speed. As a result, two animals with similar movement strategies can still exhibit different absolute moments simply because of scale effects.
 
-@wannopNormalizationGroundReaction2012 proposed a normalization method 
+Normalization methods are designed to reduce this confounding size dependence by expressing joint moments relative to biologically meaningful scaling terms. When successful, normalization improves interpretability across subjects, strengthens between-group comparisons, and makes derived biomechanical conclusions more portable across studies. In this chapter, we evaluate candidate normalization measurements for rodent inverse-dynamics data by first quantifying how strongly each candidate explains variation in joint-moment magnitude.
 
-We apply a similar approach by evaluating the scaling relationships between various candidate normalization measurements and the magnitudes of joint moments across a sample of 35 rats. We fit linear, power, and exponential models to these relationships and assess their goodness of fit using the coefficient of determination ($R^2$) to identify the most effective normalization strategies for rodent inverse dynamics data.
+@wannopNormalizationGroundReaction2012 compared several approaches for normalizing ground reaction forces and moments across subjects, including simple division normalization, power-law normalization, and offset normalization. Their key point was that ratio scaling is only appropriate when the relationship between a biomechanical variable and the normalization term is well described by a proportional model with zero intercept. When the intercept is nonzero, simple division can leave residual size dependence; in that case, offset normalization, defined as subtracting the fitted intercept before dividing by the normalization variable, may perform better. They found that if there is a large enough data set, power curve or offset normalization methods are more effective than simple division normalization.
+
+We apply a similar approach by evaluating the scaling relationships between various candidate normalization measurements and the magnitudes of joint moments across a sample of 35 rats. We fit linear, power, and exponential models to these relationships and assess their goodness of fit using the coefficient of determination ($R^2$) to screen candidate scaling relationships for later normalization analyses.
 
 ## Methods
 
-We analyzed inverse-dynamics data from 35 rats (32 baseline animals: BAA01-BAA32; 3 older animals: Old01-Old03). Candidate normalization measurements included body mass, body and segment lengths, and walking speed, as well as simple composite terms motivated by dynamic similarity. Specifically, we evaluated the following predictors: `Mass`, `TotalLength`, `RightTibiaLength`, `RightFemurLength`, `RightFootLength`, `RightWalkingSpeed`, `RightLegLength` (`RightTibiaLength + RightFemurLength`), `Mass*TotalLength`, `Mass*RightTibiaLength`, and `Mass*Speed` (`Mass * RightWalkingSpeed`).
+We analyzed inverse-dynamics data from 35 rats (32 baseline animals: BAA01-BAA32; 3 older animals: Old01-Old03). Candidate normalization measurements included body mass, whole-body and segment lengths, and walking speed, along with simple composite terms motivated by dynamic similarity. Specifically, we evaluated the following predictors: `Mass`, `TotalLength`, `RightTibiaLength`, `RightFemurLength`, `RightFootLength`, `RightWalkingSpeed`, `RightLegLength` (`RightTibiaLength + RightFemurLength`), `Mass*TotalLength`, `Mass*RightTibiaLength`, and `Mass*Speed` (`Mass * RightWalkingSpeed`).
 
-For each predictor, we modeled the magnitude of each right-limb joint moment (`hip_r_flx_moment`, `hip_r_add_moment`, `hip_r_int_moment`, `knee_r_flx_moment`, `ankle_r_flx_moment`) using three candidate functional forms:
+These predictors were selected to span both easily measured global descriptors (e.g., body mass) and limb-specific descriptors that may better capture local mechanical scaling at individual joints. Composite terms were included because many biomechanical quantities are expected to scale with more than one physical dimension (for example, force-like and moment-like terms may couple mass and length).
 
-- Linear: $y = ax + b$
+For each predictor, we modeled the peak magnitude of each right-limb joint moment (`hip_r_flx_moment`, `hip_r_add_moment`, `hip_r_int_moment`, `knee_r_flx_moment`, `ankle_r_flx_moment`) from OpenSim inverse-dynamics analysis using two candidate scaling models:
+
+- Linear Offset: $y = ax + b$
 - Power: $y = ax^b + c$
-- Exponential: $y = ae^{bx} + c$
 
-Prior to fitting, rows with zero values in the current predictor were excluded (e.g., missing `TotalLength` entries) so that each measurement-moment model used only valid observations for that predictor. Joint moments were evaluated as absolute values to compare scaling relationships in magnitude rather than direction.
+Prior to fitting, rows with zero values in the current predictor were excluded (e.g., missing `TotalLength` entries) so that each measurement-moment model used only valid observations for that predictor. Peak joint moments were analyzed in absolute-value form to compare scaling relationships independent of sign convention and moment direction, focusing the analysis on magnitude scaling.
 
-All models were fit with nonlinear least squares (`scipy.optimize.curve_fit`, max function evaluations = 50,000). Goodness of fit was quantified using the coefficient of determination, $R^2 = 1 - \frac{SS_{res}}{SS_{tot}}$, computed for each measurement-moment-model combination. We summarized the resulting $R^2$ values in heatmaps (measurement × joint moment) separately for linear, power, and exponential fits to identify the most consistent normalization candidates across joints.
+All models were fit with nonlinear least squares (`scipy.optimize.curve_fit`, max function evaluations = 50,000). Goodness of fit was quantified using the coefficient of determination, $R^2 = 1 - \frac{SS_{res}}{SS_{tot}}$, computed for each measurement-moment-model combination. Higher $R^2$ indicates that the candidate measurement explains a larger fraction of variation in joint-moment magnitude under the specified model form.
+
+In this chapter, $R^2$ is used as an initial screening metric for plausible normalization variables rather than as a direct test of normalization effectiveness. This distinction is important: a strong scaling fit suggests a useful candidate denominator, but does not by itself confirm that post-normalization values are independent of body size. A closer replication of the Wannop framework would additionally test for residual dependence after normalization.
 
 ## Results
 
-Knee flexion/extension showed the strongest scaling relationships across all joints, with the best-performing predictor given by `Mass*RightTibiaLength` under a power fit ($R^2 = 0.932$). The next-best knee predictors were `Mass*TotalLength` (power fit, $R^2 = 0.922$) and `Mass` (exponential fit, $R^2 = 0.907$). Across joint moments overall (mean of best-per-moment fits), `Mass*TotalLength` ranked highest, followed by `Mass` and `Mass*RightTibiaLength`, indicating that mass-length composite terms provided the most consistent normalization performance.
+We summarized the resulting $R^2$ values in heatmaps (measurement × joint moment) separately for linear @fig-lin-heatmap and power @fig-pow-heatmap fits to identify the most consistent candidate predictors across joints. Viewing both model classes side-by-side helps distinguish whether a predictor is broadly useful regardless of model form or only performs well under one functional relationship.
 
 ```{python}
+#| output: false
 import plotly.express as px
 import polars as pl
-import pandas as pd
-from tabulate import tabulate
-from IPython.display import Markdown
 from pathlib import Path
+import numpy as np
+from scipy.optimize import curve_fit
 
-linear_fit_results = pl.read_csv(Path("..") / "data" / "linear_fit_results.csv").to_pandas()
-power_fit_results = pl.read_csv(Path("..") / "data" / "power_fit_results.csv").to_pandas()
-exp_fit_results = pl.read_csv(Path("..") / "data" / "exp_fit_results.csv").to_pandas()
+df = pl.read_csv(Path("..") / "data" / "normalization_data.csv")
+
+def r2_score(y_true, y_pred):
+    ss_res = np.sum((y_true - y_pred) ** 2)
+    ss_tot = np.sum((y_true - np.mean(y_true)) ** 2)
+    if ss_tot == 0:
+        # Handles horizontal data: perfect fit if ss_res is also 0
+        return 1.0 if ss_res == 0 else 0.0
+    return np.clip(1 - (ss_res / ss_tot), 0, 1)
+
+def lin_off(xx, a, b):
+    return a * xx + b
+
+def pow_off(xx, a, b, c):
+    return a * (xx ** b) + c
+
+# def exp_off(xx, a, b, c):
+#     z = np.clip(xx, a_min=1e-6, a_max=np.inf)  # Avoid issues with log(0) in curve fitting
+#     return a * np.exp(b * z) + c
+
+fit_funcs = {
+  "Linear": lin_off, 
+  "Power": pow_off, 
+  # "Exponential": exp_off
+}
+
+raw_measurements = ["Mass", "TotalLength", "RightTibiaLength", "RightFemurLength", "RightFootLength", "RightWalkingSpeed"]
+computed_measurements = {
+  "RightLegLength": lambda df: df["RightTibiaLength"] + df["RightFemurLength"],
+  "Mass*TotalLength": lambda df: df["Mass"] * df["TotalLength"],
+  "Mass*RightTibiaLength": lambda df: df["Mass"] * df["RightTibiaLength"],
+  "Mass*Speed": lambda df: df["Mass"] * df["RightWalkingSpeed"],
+}
+measurements = raw_measurements + list(computed_measurements.keys())
+moments = [col for col in df.columns if col not in measurements and col != "Subject"] 
+
+df = df.with_columns([
+    *(computed_measurements[name](df).alias(name) for name in computed_measurements)
+])
+fit_results = pl.DataFrame(schema={
+  "measurement": pl.String,
+  "moment": pl.String,
+  "fit_type": pl.String,
+  "parameters": pl.List(pl.Float64),
+  "covariance": pl.List(pl.Float64),
+  "r2": pl.Float64,
+})
+
+for measurement in measurements:
+  x = df.select(pl.col(measurement)).to_numpy().flatten()
+  mask = (x != 0) & np.isfinite(x)
+  x = x[mask]
+  for moment in moments:
+    y = df.select(abs(pl.col(moment))).to_numpy().flatten()
+    y = y[mask]
+    for name, fit in fit_funcs.items():
+      params, cov = curve_fit(fit, x, y, maxfev=50000)
+      r2 = r2_score(y, fit(x, *params))
+      fit_results = fit_results.vstack(
+        pl.DataFrame({
+          "measurement": measurement,
+          "moment": moment,
+          "fit_type": name,
+          "parameters": [params.tolist()],
+          "covariance": [cov.flatten().tolist()],
+          "r2": r2,
+        })
+      )
+
+# Summary values used in inline text and table output.
+knee_best = (
+  fit_results
+  .filter(pl.col("moment") == "knee_r_flx_moment")
+  .sort("r2", descending=True)
+  .row(0, named=True)
+)
+knee_best_measurement = knee_best["measurement"]
+knee_best_fit_type = knee_best["fit_type"].lower()
+knee_best_r2 = knee_best["r2"]
+
+best_fits = fit_results.group_by(["measurement", "moment"]).agg(
+  pl.col("r2").max().alias("best_r2")
+)
+best_fits_summary = (
+  best_fits
+  .group_by("measurement")
+  .agg(pl.col("best_r2").mean().alias("mean_best_r2"))
+)
+
+fit_type_means = (
+  fit_results
+  .group_by(["measurement", "fit_type"])
+  .agg(pl.col("r2").mean().alias("mean_r2"))
+)
+
+linear_means = (
+  fit_type_means
+  .filter(pl.col("fit_type") == "Linear")
+  .select(["measurement", pl.col("mean_r2").alias("mean_linear_offset_r2")])
+)
+
+power_means = (
+  fit_type_means
+  .filter(pl.col("fit_type") == "Power")
+  .select(["measurement", pl.col("mean_r2").alias("mean_power_r2")])
+)
+
+best_fits_summary_full = (
+  best_fits_summary
+  .join(linear_means, on="measurement", how="left")
+  .join(power_means, on="measurement", how="left")
+  .sort("mean_best_r2", descending=True)
+)
+
+top_measurements = best_fits_summary_full.select("measurement").to_series().to_list()
+top_1, top_2, top_3 = top_measurements[:3]
 ```
 
 
@@ -44,6 +162,7 @@ exp_fit_results = pl.read_csv(Path("..") / "data" / "exp_fit_results.csv").to_pa
 #| label: fig-lin-heatmap
 #| fig-cap: "R^2 values for linear fits of joint moment magnitudes to candidate normalization measurements. Higher values (yellow) indicate better fit."
 
+linear_fit_results = fit_results.filter(pl.col("fit_type") == "Linear").to_pandas()
 linear_fit_pivot = linear_fit_results.pivot(
   index="measurement",
   columns="moment",
@@ -64,6 +183,7 @@ fig.show()
 #| label: fig-pow-heatmap
 #| fig-cap: "R^2 values for power fits of joint moment magnitudes to candidate normalization measurements. Higher values (yellow) indicate better fit."
 
+power_fit_results = fit_results.filter(pl.col("fit_type") == "Power").to_pandas()
 power_fit_pivot = power_fit_results.pivot(
   index="measurement",
   columns="moment",
@@ -84,38 +204,57 @@ fig.show()
 #| label: fig-exp-heatmap
 #| fig-cap: "R^2 values for exponential fits of joint moment magnitudes to candidate normalization measurements. Higher values (yellow) indicate better fit."
 
-exponential_fit_pivot = exp_fit_results.pivot(
-    index="measurement",
-    columns="moment",
-    values="r2",
-)
-fig = px.imshow(
-    exponential_fit_pivot,
-    text_auto=".2f",
-    labels=dict(x="Joint Moment", y="Measurement", color="R² Score"),
-    title="R² Heatmap of Joint Moment vs. Measurement (Exponential Fit: y = a*exp(b*x) + c)"
-)
+# exp_fit_results = fit_results.filter(pl.col("fit_type") == "Exponential").to_pandas()
+# exponential_fit_pivot = exp_fit_results.pivot(
+#     index="measurement",
+#     columns="moment",
+#     values="r2",
+# )
+# fig = px.imshow(
+#     exponential_fit_pivot,
+#     text_auto=".2f",
+#     labels=dict(x="Joint Moment", y="Measurement", color="R² Score"),
+#     title="R² Heatmap of Joint Moment vs. Measurement (Exponential Fit: y = a*exp(b*x) + c)"
+# )
 
-fig.show()
+# fig.show()
 ```
 
-The mean $R^2$ across joints for the best fit per moment is summarized in the table below. 
+Knee flexion/extension showed the strongest scaling relationships across all joints, with the strongest fitted association given by `{python} knee_best_measurement` under a `{python} knee_best_fit_type` fit ($R^2 =$ `{python} f"{knee_best_r2:.3f}"`). Across joint moments overall (mean of best-per-moment fits), `{python} top_1` ranked highest, followed by `{python} top_2` and `{python} top_3`, indicating that mass-length composite terms showed the most consistent fit across moments.
+
+The mean $R^2$ across joints for the best fit per moment can be computed from the fitted models. 
 
 ```{python}
-# best_fits = fit_results.group_by(["measurement", "moment"]).agg(pl.col("r2").max().alias("best_r2"))
-
-# best_fits_summary = best_fits.group_by("measurement").agg(pl.col("best_r2").mean().alias("mean_best_r2")).sort("mean_best_r2", reverse=True)
-
-# Markdown(
-#     tabulate(
-#         best_fits_summary.to_pandas(), 
-#         headers=["Measurement", "Mean Best R²"], 
-#         tablefmt="github", 
-#         floatfmt=".3f"
-#     )
-# )
+#| label: tbl-best-fits
+#| tbl-cap: "Mean R² values across joints for the best fit per moment."
+from IPython.display import Markdown as md
+from tabulate import tabulate
+best_fits_summary_display = (
+  best_fits_summary_full
+  .rename(
+    {
+      "measurement": "Measurement",
+      "mean_best_r2": "Mean Best R²",
+      "mean_linear_offset_r2": "Mean Linear Offset R²",
+      "mean_power_r2": "Mean Power R²",
+    }
+  )
+)
+md(
+  tabulate(
+    best_fits_summary_display.to_pandas(), 
+    headers="keys", 
+    showindex=False,
+    tablefmt="github",
+    floatfmt=".3f",
+  )
+)
 ```
 
 ## Discussion
 
-While this methodology shows promise in normalizing rodent inverse dynamics data, there are several limitations to consider. The small sample size limits the generalizability of the findings. Additionally, the lack of an age-matched control dataset makes it difficult to fully validate the normalization methods proposed. Ideally, there would be an age-matched control dataset to compare against, but this was not available. Future work should consider collecting such data to validate the normalization methods proposed here. 
+This workflow provides a practical first-pass strategy for identifying candidate scaling variables in rodent inverse dynamics, but several limitations should be considered when interpreting the findings. First, the sample size is modest, which increases sensitivity to subject-level variability and may limit generalizability. Additionally, the dataset is not fully age-balanced, with only three older animals included, which may bias scaling relationships if age-related changes in biomechanics are present. The analysis also focuses on peak moment magnitudes rather than time-series data, which may miss important dynamic scaling effects.
+
+Most importantly, the present analysis evaluates pre-normalization model fit rather than post-normalization independence from size. Consequently, these results should be interpreted as a screening stage for candidate normalization terms, not as a complete validation. A stronger validation pipeline would normalize moments using each candidate term, then explicitly test residual correlations with mass and segment length and evaluate whether between-subject dispersion is reduced in a biologically meaningful way.
+
+Future work should therefore prioritize larger, age-balanced datasets and direct post-normalization diagnostics (residual-trend testing, variance reduction metrics, and cross-cohort reproducibility) to determine which scaling approach is most robust for translational rodent biomechanics.

@@ -1,0 +1,3 @@
+# Appendix B: Rajagopal Model Muscle-Tendon Lengths Across Joint Configurations {#sec-rajagopal-mtl .unnumbered}
+
+![Musculotendon length dependence on joint coordinates for gaslat, bflh, and soleus. Color indicates musculotendon length, with stronger coordinate coupling visible for ankle angle in soleus and hip flexion in bflh.](../images/mt_length_coordinate_relationships.png){#fig-tsl-coord-dependence}

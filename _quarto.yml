@@ -5,7 +5,7 @@ execute:
   freeze: auto
 
 book:
-  title: "Use of Musculoskeletal Rodent Model for Investigating Neuromuscular Injury and Rehabilation"
+  title: "Use of Musculoskeletal Rodent Models for Investigating Neuromuscular Injury and Rehabilation"
   author: "Hudson Burke"
   search: true
   repo-url: https://github.com/hudsonburke/thesis/
@@ -23,6 +23,7 @@ book:
     - chapters/08-conclusions.qmd
     - references.qmd
     - appendices/A-young-attachments.qmd
+    - appendices/B-rajagopal-mtl.qmd
     
 comments:
   hypothesis: true

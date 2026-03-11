@@ -16,7 +16,7 @@ CMC is an optimization-based algorithm that computes muscle excitations required
     - 6 trials per rat
 - CMC analysis using OpenSim API
 
-- Scale new model with new muscles and run CMC using ik and id
+- Scale new model with new muscles and run CMC
 
 
 ## Results
