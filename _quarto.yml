@@ -24,6 +24,7 @@ book:
     - references.qmd
     - appendices/A-young-attachments.qmd
     - appendices/B-rajagopal-mtl.qmd
+    - appendices/C-movedb.qmd
     
 comments:
   hypothesis: true
@@ -41,3 +42,5 @@ format:
     code-fold: true
   pdf:
     documentclass: scrreprt
+    echo: false
+  docx: default

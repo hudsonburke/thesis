@@ -1,3 +1,9 @@
 # Acknowledgements {.unnumbered }
 
 To my advisor, Dr. Shawn Russell for his mentorship, guidance, and support throughout this project.
+To Dr. Xiao Hu, for his invaluable insights and contributions to the development of the musculoskeletal model. 
+To Dr. Siddharth Singh, for his continual reminder of what's important and his unwavering support.
+
+
+
+To my parents, who have always believed in me, encouraged me to pursue my passions, and supported me in every step of my journey.
