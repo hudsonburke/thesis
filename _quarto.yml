@@ -14,13 +14,12 @@ book:
     - index.qmd
     - acknowledgements.qmd
     - chapters/01-introduction.qmd
-    - chapters/02-background.qmd
-    - chapters/03-rat-vml.qmd
-    - chapters/04-normalization.qmd
-    - chapters/05-rat-model.qmd
-    - chapters/06-tsl-optimization.qmd
-    - chapters/07-muscle-analysis.qmd
-    - chapters/08-conclusions.qmd
+    - chapters/02-rat-vml.qmd
+    - chapters/03-normalization.qmd
+    - chapters/04-rat-model.qmd
+    - chapters/05-tsl-optimization.qmd
+    - chapters/06-muscle-analysis.qmd
+    - chapters/07-conclusions.qmd
     - references.qmd
     - appendices/A-young-attachments.qmd
     - appendices/B-rajagopal-mtl.qmd
