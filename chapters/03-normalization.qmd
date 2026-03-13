@@ -176,13 +176,13 @@ fig = px.imshow(
   title="R² Heatmap of Joint Moment vs. Measurement (Linear Fit: y = ax + b)"
 )
 
-fig.write_image("../images/lin_heat_map.svg")
+fig.write_image("../images/lin_heat_map.png")
 fig.show()
 ```
 :::
 
 ::: {.content-visible unless-format="html"}
-![R^2 values for linear fits of joint moment magnitudes to candidate normalization measurements. Higher values (yellow) indicate better fit.](../images/lin_heat_map.svg){#fig-lin-heatmap}
+![R^2 values for linear fits of joint moment magnitudes to candidate normalization measurements. Higher values (yellow) indicate better fit.](../images/lin_heat_map.png){#fig-lin-heatmap}
 :::
 
 ::: {.content-visible when-format="html"}
@@ -203,13 +203,13 @@ fig = px.imshow(
   labels=dict(x="Joint Moment", y="Measurement", color="R² Score"),
   title="R² Heatmap of Joint Moment vs. Measurement (Power Fit: y = a*x^b + c)"
 )
-fig.write_image("../images/pow_heat_map.svg")
+fig.write_image("../images/pow_heat_map.png")
 fig.show()
 ```
 :::
 
 ::: {.content-visible unless-format="html"}
-![R^2 values for power fits of joint moment magnitudes to candidate normalization measurements. Higher values (yellow) indicate better fit.](../images/pow_heat_map.svg){#fig-pow-heatmap}
+![R^2 values for power fits of joint moment magnitudes to candidate normalization measurements. Higher values (yellow) indicate better fit.](../images/pow_heat_map.png){#fig-pow-heatmap}
 :::
 
 ```{python}
