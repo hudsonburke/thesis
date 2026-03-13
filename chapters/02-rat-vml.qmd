@@ -1,4 +1,4 @@
-# Rat VML Analysis {#sec-rat-vml}
+# Gait Analysis of Volumetric Muscle Loss in Rats {#sec-rat-vml}
 
 ## Introduction
 

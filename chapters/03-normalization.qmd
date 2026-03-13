@@ -60,8 +60,8 @@ def pow_off(xx, a, b, c):
 #     return a * np.exp(b * z) + c
 
 fit_funcs = {
-  "Linear": lin_off, 
-  "Power": pow_off, 
+  "Linear": lin_off,
+  "Power": pow_off,
   # "Exponential": exp_off
 }
 
@@ -73,7 +73,7 @@ computed_measurements = {
   "Mass*Speed": lambda df: df["Mass"] * df["RightWalkingSpeed"],
 }
 measurements = raw_measurements + list(computed_measurements.keys())
-moments = [col for col in df.columns if col not in measurements and col != "Subject"] 
+moments = [col for col in df.columns if col not in measurements and col != "Subject"]
 
 df = df.with_columns([
     *(computed_measurements[name](df).alias(name) for name in computed_measurements)
@@ -157,7 +157,7 @@ top_measurements = best_fits_summary_full.select("measurement").to_series().to_l
 top_1, top_2, top_3 = top_measurements[:3]
 ```
 
-
+::: {.content-visible when-format="html"}
 ```{python}
 #| label: fig-lin-heatmap
 #| fig-cap: "R^2 values for linear fits of joint moment magnitudes to candidate normalization measurements. Higher values (yellow) indicate better fit."
@@ -176,9 +176,16 @@ fig = px.imshow(
   title="R² Heatmap of Joint Moment vs. Measurement (Linear Fit: y = ax + b)"
 )
 
+fig.write_image("../images/lin_heat_map.svg")
 fig.show()
 ```
+:::
 
+::: {.content-visible unless-format="html"}
+![R^2 values for linear fits of joint moment magnitudes to candidate normalization measurements. Higher values (yellow) indicate better fit.](../images/lin_heat_map.svg){#fig-lin-heatmap}
+:::
+
+::: {.content-visible when-format="html"}
 ```{python}
 #| label: fig-pow-heatmap
 #| fig-cap: "R^2 values for power fits of joint moment magnitudes to candidate normalization measurements. Higher values (yellow) indicate better fit."
@@ -196,9 +203,14 @@ fig = px.imshow(
   labels=dict(x="Joint Moment", y="Measurement", color="R² Score"),
   title="R² Heatmap of Joint Moment vs. Measurement (Power Fit: y = a*x^b + c)"
 )
+fig.write_image("../images/pow_heat_map.svg")
 fig.show()
-
 ```
+:::
+
+::: {.content-visible unless-format="html"}
+![R^2 values for power fits of joint moment magnitudes to candidate normalization measurements. Higher values (yellow) indicate better fit.](../images/pow_heat_map.svg){#fig-pow-heatmap}
+:::
 
 ```{python}
 #| label: fig-exp-heatmap
@@ -222,7 +234,7 @@ fig.show()
 
 Knee flexion/extension showed the strongest scaling relationships across all joints, with the strongest fitted association given by `{python} knee_best_measurement` under a `{python} knee_best_fit_type` fit ($R^2 =$ `{python} f"{knee_best_r2:.3f}"`). Across joint moments overall (mean of best-per-moment fits), `{python} top_1` ranked highest, followed by `{python} top_2` and `{python} top_3`, indicating that mass-length composite terms showed the most consistent fit across moments.
 
-The mean $R^2$ across joints for the best fit per moment can be computed from the fitted models. 
+The mean $R^2$ across joints for the best fit per moment can be computed from the fitted models.
 
 ```{python}
 #| label: tbl-best-fits
@@ -242,14 +254,16 @@ best_fits_summary_display = (
 )
 md(
   tabulate(
-    best_fits_summary_display.to_pandas(), 
-    headers="keys", 
+    best_fits_summary_display.to_pandas(),
+    headers="keys",
     showindex=False,
     tablefmt="github",
     floatfmt=".3f",
   )
 )
 ```
+
+TODO: Show normalized vs unnormalized moment data with the best
 
 ## Discussion
 
