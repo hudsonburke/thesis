@@ -31,6 +31,8 @@ comments:
 bibliography: references.bib
 
 format:
+  execute:
+    echo: false
   html:
     respect-user-color-scheme: true
     theme:
