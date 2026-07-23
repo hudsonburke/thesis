@@ -1,0 +1,34 @@
+[project]
+name = "thesis"
+version = "0.1.0"
+description = "Use of Musculoskeletal Rodent Models for Investigating Neuromuscular Injury and Rehabilitation"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "ipython",
+    "matplotlib",
+    "numpy",
+    "opensim>=4.6",
+    "pandas",
+    "plotly",
+    "polars",
+    "scipy",
+    "seaborn",
+    "tabulate",
+]
+
+[project.optional-dependencies]
+dev = [
+    "jupyter",
+    "marimo",
+    "pytest>=8",
+]
+
+# Some dependencies come from submodule packages. uv sync --all-extras
+# will install these from their local paths if submodules are initialized.
+[tool.uv.sources]
+tsl-optimization = { path = "src/tsl-optimization", editable = true }
+osimpy = { path = "src/osimpy", editable = true }
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
