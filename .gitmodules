@@ -3,7 +3,7 @@
 	url = https://github.com/hudsonburke/tsl-optimization.git
 [submodule "src/RatHindlimb"]
 	path = src/RatHindlimb
-	url = https://github.com/UVA-MAMP-Lab/RatHindlimb.git
+	url = https://github.com/hudsonburke/rat-hindlimb-model.git
 [submodule "src/rat-vml"]
 	path = src/rat-vml
 	url = https://github.com/hudsonburke/rat-vml.git
